@@ -3,15 +3,17 @@ layout: default
 ---
 <h1>Haupt</h1>
 
-<p>Aufsätz List</p>
+<p>Aufsätz List :</p>
 <ul>
   {% for post in site.posts %}
     <li>
 	<a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a>
+	<p>{{post.url}}</p>
     </li>
   {% endfor %}
 </ul>
 
+<p>References</p>
 <ul>
   <li><a href="https://jekyllrb.com/">jekyllrb.com</a></li>
 </ul>

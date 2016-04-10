@@ -1,4 +1,4 @@
 encoding: utf-8
 
 baseurl: /sir
-premalink: none
+premalink: /:categories/:title.html
