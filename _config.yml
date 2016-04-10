@@ -1,4 +1,11 @@
 encoding: utf-8
 
 baseurl: /sir
-premalink: /:categories/:title.html
+
+defaults:
+  -
+    scope:
+      path: "_posts/system/os"
+    values:
+      layout: "post"
+      premalink: /:categories/:title.html
