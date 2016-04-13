@@ -5,6 +5,12 @@ baseurl: /sir
 defaults:
   -
     scope:
-      path: "_posts/system/os"
+      path: "_posts"
     values:
       layout: "post"
+      premalink: /:categories/:title.html
+  -
+    scope:
+      path: "_posts/system/os"
+    values:
+      categories: [system, os]
