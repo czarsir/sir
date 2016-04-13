@@ -10,7 +10,7 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
-  padding: 0;
+  padding: 5px;
   background: #F5F5F5;
 }
 #navigator {
@@ -20,7 +20,11 @@ body {
 </style>
 
 <body>
-<div id="navigator">Aufsatz</div>
+<div id="navigator">
+	<div id="home">
+		<a href="{{site.baseurl}}">Home</a>
+	</div>
+</div>
 {{content}}
 </body>
 </html> 
