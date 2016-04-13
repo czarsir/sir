@@ -14,3 +14,4 @@ defaults:
       path: "_posts/system/os"
     values:
       categories: [system, os]
+
