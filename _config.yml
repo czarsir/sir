@@ -1,4 +1,4 @@
-encoding: utf-8
+ncoding: utf-8
 
 baseurl: /sir
 
@@ -8,10 +8,15 @@ defaults:
       path: "_posts"
     values:
       layout: "post"
-      premalink: /:categories/:title.html
+      permalink: /:categories/:title.html
   -
     scope:
       path: "_posts/system/os"
     values:
       categories: [system, os]
+  -
+    scope:
+      path: "_posts/wissenschaft"
+    values:
+      categories: [wissenschaft]
 
