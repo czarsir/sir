@@ -19,4 +19,13 @@ defaults:
       path: "_posts/wissenschaft"
     values:
       categories: [wissenschaft]
-
+  -
+    scope:
+      path: "_posts/tool"
+    values:
+      categories: [tool]
+  -
+    scope:
+      path: "_posts/tool/ruby"
+    values:
+      categories: [tool, ruby]
