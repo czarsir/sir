@@ -3,6 +3,21 @@ layout: default
 ---
 <h1>Haupt</h1>
 
+<p>Category:</p>
+{% assign cate_group = site.posts | group_by:"categories" %}
+{% assign post_sort = site.posts | sort:"categories" %}
+{% for post in post_sort %}
+  <p>+++ {{post.categories | join:" / "}}</p>
+  <div>
+  {% assign indent = "&nbsp" %}
+  {% for i in post.categories %}
+    {% assign indent = indent | append:"&nbsp&nbsp" %}
+  {% endfor %}
+  {{indent}}
+  {{post.title}}
+  </div>
+{% endfor %}
+
 <p>Aufsätz List :</p>
 <ul>
   {% for post in site.posts %}
