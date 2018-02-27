@@ -3,32 +3,53 @@ layout: default
 ---
 <h1>Haupt</h1>
 
-<p>Category:</p>
+<h3>Category:</h3>
+{% assign cate_current = nil %}
+{% assign cate_lvl = 0 %}
+{% assign cate_lvl_diff = 0 %}
 {% assign cate_group = site.posts | group_by:"categories" %}
 {% assign post_sort = site.posts | sort:"categories" %}
 {% for post in post_sort %}
-  <p>+++ {{post.categories | join:" / "}}</p>
-  <div>
+
+  {% comment %} /*** Pfad ***/ {% endcomment %}
+  {% if cate_current != post.categories %}
+
+    {% comment %} /*** Pfad - Level (root:0) ***/ {% endcomment %}
+    {% for i in (1..post.categories.size) %}
+      {% assign idx = i | minus: 1 %}     
+      {% if cate_current[idx] != post.categories[idx] %}
+        {% assign cate_lvl_diff = idx %}
+        {% assign cate_current = post.categories %}
+        {% break %} 
+      {% endif %}
+    {% endfor %}
+
+    {% for j in (1..post.categories.size) offset:cate_lvl_diff %}
+      {% assign cate_lvl = j | minus: 1 %}
+
+      {% comment %} /*** Pfad - Indicator ***/ {% endcomment %}
+      {% assign cate_indicator = "" %}
+      {% for i in (1..cate_lvl) %}
+        {% assign cate_indicator = cate_indicator | append:"&nbsp&nbsp&nbsp&nbsp" %} 
+      {% endfor %}
+      {% assign cate_indicator = cate_indicator | append:"+-&nbsp" %} 
+  
+      {% comment %} /*** Pfad - Show ***/ {% endcomment %}
+      <p>{{cate_indicator}}{{ cate_current[cate_lvl] }}</p>
+    {% endfor %}
+
+  {% endif %}
+
+  {% comment %} /*** Name ***/ {% endcomment %}
   {% assign indent = "&nbsp" %}
   {% for i in post.categories %}
-    {% assign indent = indent | append:"&nbsp&nbsp" %}
+    {% assign indent = indent | append:"&nbsp&nbsp&nbsp&nbsp" %}
   {% endfor %}
-  {{indent}}
-  {{post.title}}
-  </div>
+    <div>{{indent}}<a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></div>
+
 {% endfor %}
 
-<p>Aufsätz List :</p>
-<ul>
-  {% for post in site.posts %}
-    <li>
-	<a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a>
-	<p>{{post.url}}</p>
-    </li>
-  {% endfor %}
-</ul>
-
-<p>References</p>
+<h3>References:</h3>
 <ul>
   <li><a href="https://jekyllrb.com/">jekyllrb.com</a></li>
 </ul>
