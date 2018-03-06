@@ -21,6 +21,11 @@ defaults:
       categories: [wissenschaft]
   -
     scope:
+      path: "_posts/technik"
+    values:
+      categories: [technik]
+  -
+    scope:
       path: "_posts/tool"
     values:
       categories: [tool]
