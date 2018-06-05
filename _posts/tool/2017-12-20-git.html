@@ -3,14 +3,55 @@ title: Git
 ---
 <h1>{{ page.title }}</h1>
 
+<br><br>
+<h3>Basic Operation</h3>
+
 <p>commit</p>
 <div class="cmd">git add [file]</div>
 <div class="cmd">git commit -m "log"</div>
 <div class="cmd">git push</div>
-
+<p>undo uncommitted change</p>
+<div class="cmd">git checkout -- .</div>
 <p>status</p>
 <div class="cmd">git status</div>
 <div class="cmd">git status -s</div>
-
 <p>log</p>
 <div class="cmd">git log --stat</div>
+
+<br><br><br>
+<h3>Init</h3>
+
+<p>init (part of the repository)</p>
+<div class="cmd">git init</div>
+<div class="cmd">git config core.sparsecheckout true</div>
+<div class="cmd">git remote add origin [url]</div>
+<div class="cmd">echo "[relativ_path]/*" >> .git/info/sparse-checkout</div>
+<div class="cmd">git pull --depth=1 origin master</div>
+
+<br><br><br>
+<h3>Branch</h3>
+
+<p>local branch: create and enter (based on current branch)</p>
+<div class="cmd">git checkout -b [branch]</div>
+<p>local branch: create and enter (based on specified branch)</p>
+<div class="cmd">git checkout -b [branch] [remote_branch]</div>
+<p>remote branch: create</p>
+<div class="cmd">git push origin local_branch:remote_branch</div>
+<p>show local all</p>
+<div class="cmd">git branch -a</div>
+<p>relation: create</p>
+<div class="cmd">git branch --set-upstream-to=[remote_branch]</div>
+<p>relation: show</p>
+<div class="cmd">git branch -vv</div>
+
+<br><br><br>
+<h3>Remote</h3>
+
+<p>create</p>
+<div class="cmd">git remote add [remote_name] [url]</div>
+<p>get info</p>
+<div class="cmd">git fetch [remote_name]</div>
+<p>show</p>
+<div class="cmd">git remote show [remote_name]</div>
+<p>delete</p>
+<div class="cmd">git remote rm [remote_name]</div>
