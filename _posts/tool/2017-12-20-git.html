@@ -70,8 +70,12 @@ title: Git
 <div class="cmd">git difftool branch_1 branch_2</div>
 <p>check diff before merge (only conflict)</p>
 <div class="cmd">git diff branch_1...branch_2</div>
+<p>check diff before merge (one)</p>
+<div class="cmd">git diff branch_1...branch_2 -- one_file</div>
 <p>merge</p>
 <div class="cmd">git merge [branch]</div>
+<p>merge without commit</p>
+<div class="cmd">git merge --no-commit [branch]</div>
 <p>graphic tool</p>
 <div class="cmd">git mergetool</div>
 <p>upload</p>
@@ -92,3 +96,8 @@ title: Git
 <div class="cmd">git push origin --tags</div>
 
 
+<br><br><br>
+<h3>Config</h3>
+
+<p>global gitignore</p>
+<div class="cmd">git config --global core.excludesfile '~/.gitignore'</div>
