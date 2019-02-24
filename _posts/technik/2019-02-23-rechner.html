@@ -1,0 +1,172 @@
+---
+title: Rechner
+---
+<h1>{{ page.title }}</h1>
+
+<br><br>
+<h3>Rechnerstruktur</h3>
+
+<p>Anwendungen und Spezialarchitekturen</p>
+<ul>
+<li>Klassifikation
+	<ul>I: Externes Verhalten
+	<li>Transformierende Systeme</li>
+	<li>Reaktive Systeme</li>
+	<li>Interaktive Systeme</li>
+	<li>Mischformen</li>
+	</ul>
+	<ul>II: Interne Abläufe und Organisation
+	<li>Datendominierte Systeme</li>
+	<li>Steuerdominierte Systeme</li>
+	</ul>
+</li>
+<li>Modelle
+	<ul>
+	<li>Automaten</li>
+	<li>Petri Netze</li>
+	<li>Datenflussgraphen
+		<ul><li>Synchrone Datenflussgraphen (SDF)</li></ul>
+	</li>
+	<li>Flussgraphen
+		<ul><li>Kahn Graphen</li></ul>
+	</li>
+	<li>Statecharts</li>
+	<li>Universal Modeling Language (UML)</li>
+	</ul>
+</li>
+<li>Energieverbrauch
+	<ul>
+	<li>Quelle
+		<ul>
+		<li>statische Leckströme</li>
+		<li>dynamische Last</li>
+		</ul>
+	</li>
+	<li>Verringerung
+		<ul>
+		<li>Dynamic Voltage and Frequency Scaling (DVFS)</li>
+		<li>Power Gating</li>
+		</ul>
+	</li>
+	</ul>
+</li>
+<li>Zuverlässigkeit</li>
+</ul>
+
+<p>Funktionsarchitektur</p>
+<ul>
+<li>Abbildung auf die Softwarearchitektur</li>
+<li>Ende-zu-Ende: Pfadlatenz Pfadjitter</li>
+<li>Task -> API -> Runtime Environment (RTE)
+	<div>z.B. AUTOSAR</div>
+</li>
+<li>Kommunikationsprotokoll
+	<ul>
+	<li>send - receive</li>
+	<li>client - server</li>
+	</ul>
+</li>
+</ul>
+
+<p>Ausführungsplattformen und ihr Betrieb</p>
+<ul>
+<li>Kommunikationsnetze
+	<ul>
+	<li>Grundstrukturen
+		<ul>
+		<li>Punkt-zu-Punkt</li>
+		<li>Busse n-zu-m</li>
+		<li>Busse mit Bridges oder Gateways</li>
+		<li>Größere und reguläre Netze</li>
+		<li>Drahtlose Netze</li>
+		<li>freie Signalausbreitung wirkt wie ein Bus</li>
+		</ul>
+	</li>
+	<li>Protokollstack</li>
+	<li>Busse
+		<ul>
+		<li>LIN (einfach)</li>
+		<li>CAN</li>
+		<li>MOST (Infotainment)</li>
+		<li>FlexRay (sicherheitskritisch)</li>
+		</ul>
+	<li>Netze
+		<ul>
+		<li>Avionik
+			<div>AFDX / ARINC 664</div>
+		</li>
+		<li>Kraftfahrzeug
+			<div>Ethernet / Time Sensitive Networks (TSN)</div>
+		</li>
+		<li>Industrie
+			<div>PROFINET</div>
+		</li>
+		</ul>
+	</li>
+	</ul>
+</li>
+<li>Betriebssysteme</li>
+</ul>
+
+<p>Systematische Integration</p>
+<ul>
+<li>Zeitverhalten
+	<ul>
+	<li>Scheduling</li>
+	</ul>
+</li>
+<li>Ereignismodelle und Last
+	<ul>
+	<li>periodisch mit Jitter und Burst</li>
+	<li>nicht periodisch</li>
+	<li>(P,J,D) - Modell</li>
+	<li>Arrival Curves</li>
+	</ul>
+</li>
+<li>Scheduling - Strategien und Analyse
+	<ul>
+	<li>Begriffe
+		<ul>
+		<li>Task</li>
+		<li>Job</li>
+		<li>preemptive / non preemptive</li>
+		<li>Worst Case Execution Time (WCET)</li>
+		<li>Response Time</li>
+		<li>Worst Case Response Time (WCRT)</li>
+		<li>Deadline
+			<div>hard deadline</div>
+			<div>firm deadline</div>
+			<div>soft deadline</div>
+		</li>
+		</ul>
+	</li>
+	<li>Scheduling
+		<ul>zeitgesteuert
+		<li>Time Division Multiple Access (TDMA)</li>
+		<li>Round Robin</li>
+		</ul>
+		<ul>prioritätsgesteuert
+		<li>Rate Monotonic Scheduling (RMS)</li>
+		<li>Priority Ceiling Protocol (PCP)</li>
+		</ul>
+	</li>
+	</ul>
+</li>
+<li>System-level Analysis
+	<ul>
+	<li>end-to-end latencies</li>
+	<li>buffer sizes</li>
+	<li>system load</li>
+	</ul>
+</li>
+</ul>
+
+<p>Functional Safety</p>
+
+
+
+<br><br><br>
+<h3>References:</h3>
+<ul>
+<li>Ernst, Rolf (2017). Vorlesung: Rechnerstrukturen II</li>
+</ul>
