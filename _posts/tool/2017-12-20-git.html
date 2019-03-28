@@ -22,12 +22,16 @@ title: Git
 <br><br><br>
 <h3>Init</h3>
 
-<p>init (part of the repository)</p>
+<p>init</p>
 <div class="cmd">git init</div>
-<div class="cmd">git config core.sparsecheckout true</div>
 <div class="cmd">git remote add origin [url]</div>
+<p>(part of the repository)</p>
+<div class="cmd">git config core.sparsecheckout true</div>
 <div class="cmd">echo [relativ_path/*] >> .git/info/sparse-checkout</div>
 <div class="cmd">git pull --depth=1 origin master</div>
+<p>(specific branch)</p>
+<div class="cmd">git pull --depth=1</div>
+<div class="cmd">git checkout --track origin/[remote_branch]</div>
 
 <br><br><br>
 <h3>Branch</h3>
@@ -35,7 +39,7 @@ title: Git
 <p>local branch: create and enter (based on current branch)</p>
 <div class="cmd">git checkout -b [branch]</div>
 <p>local branch: create and enter (based on specified branch)</p>
-<div class="cmd">git checkout -b [branch] [remote_branch]</div>
+<div class="cmd">git checkout -b [branch] origin/[remote_branch]</div>
 <p>local branch: delete</p>
 <div class="cmd">git branch -d [branch]</div>
 <p>remote branch: create</p>
@@ -43,7 +47,7 @@ title: Git
 <p>show local all</p>
 <div class="cmd">git branch -a</div>
 <p>relation: create</p>
-<div class="cmd">git branch --set-upstream-to=[remote_branch]</div>
+<div class="cmd">git branch --set-upstream-to=origin/[remote_branch]</div>
 <p>relation: show</p>
 <div class="cmd">git branch -vv</div>
 
