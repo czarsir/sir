@@ -38,12 +38,16 @@ title: Git
 
 <p>local branch: create and enter (based on current branch)</p>
 <div class="cmd">git checkout -b [branch]</div>
-<p>local branch: create and enter (based on specified branch)</p>
+<p>local branch: create and enter (based on specified branch) (no tracking)</p>
 <div class="cmd">git checkout -b [branch] origin/[remote_branch]</div>
+<p>local branch: create and enter (based on specified branch) (with tracking)</p>
+<div class="cmd">git checkout --track origin/[remote_branch]</div>
 <p>local branch: delete</p>
 <div class="cmd">git branch -d [branch]</div>
-<p>remote branch: create</p>
+<p>remote branch: create (no tracking)</p>
 <div class="cmd">git push origin [local_branch]:[remote_branch]</div>
+<p>remote branch: create (with tracking)</p>
+<div class="cmd">git push -u origin [remote_branch]</div>
 <p>show local all</p>
 <div class="cmd">git branch -a</div>
 <p>relation: create</p>
