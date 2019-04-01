@@ -16,11 +16,6 @@ defaults:
       categories: [system, os]
   -
     scope:
-      path: "_posts/wissenschaft"
-    values:
-      categories: [wissenschaft]
-  -
-    scope:
       path: "_posts/technik"
     values:
       categories: [technik]
@@ -34,3 +29,8 @@ defaults:
       path: "_posts/tool/ruby"
     values:
       categories: [tool, ruby]
+  -
+    scope:
+      path: "_posts/wissenschaft"
+    values:
+      categories: [wissenschaft]
