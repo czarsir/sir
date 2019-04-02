@@ -26,10 +26,8 @@ title: GCC
 <div>http://savannah.nongnu.org/projects/avr-libc</div>
 <div class="cmd">svn co svn://svn.savannah.nongnu.org/avr-libc/trunk</div>
 <div class="cmd">cd trunk/avr-libc/</div>
-<div class="cmd">PREFIX=/usr/local/Cellar/avr-gcc/8.3.0</div>
-<div class="cmd">export $PREFIX</div>
 <div class="cmd">./bootstrap</div>
-<div class="cmd">./configure --prefix=$PREFIX --build=`./config.guess` --host=avr</div>
+<div class="cmd">./configure --prefix=/usr/local/Cellar/avr-gcc/8.3.0 --build=`./config.guess` --host=avr</div>
 <div class="cmd">make</div>
 <div class="cmd">sudo make install</div>
 <div>http://packs.download.atmel.com</div>
@@ -39,15 +37,20 @@ title: GCC
 <div class="cmd">cd $PREFIX/avr/lib/avrxmega3</div>
 <div>(include/avr/iom4809.h)
 <div class="cmd">cd $PREFIX/avr/include/avr</div>
+<p>install - libhidapi</p>
+<div class="cmd">brew install hidapi</div>
 <p>install - avrdude</p>
-<div>http://download.savannah.gnu.org/releases/avrdude/</div>
+<div>http://savannah.nongnu.org/projects/avrdude</div>
+<div class="cmd">svn co svn://svn.savannah.nongnu.org/avrdude/trunk</div>
+<div class="cmd">cd trunk/avrdude/</div>
+<div class="cmd">./bootstrap</div>
 <div class="cmd">./configure</div>
 <div class="cmd">make</div>
 <div class="cmd">sudo make install</div>
 <p>usage</p>
 <div class="cmd">avr-gcc -mmcu=atmega4809 -o out.bin main.c</div>
 <div class="cmd">avr-objcopy -j .text -j .data -O ihex out.bin out.hex</div>
-<div class="cmd">avrdude -p m4809 -c atmelice_updi -U flash:w:out.hex:i -F -P usb</div>
+<div class="cmd">avrdude -p m4809 -c atmelice_updi -U flash:w:out.hex:i -F [-P usb]</div>
 
 
 <br><br><br>
