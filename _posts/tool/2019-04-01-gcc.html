@@ -5,16 +5,55 @@ title: GCC
 
 <br><br>
 <h3>GCC</h3>
-
+<p>usage</p>
 <div class="cmd">gcc -o out.bin main.c</div>
 
 
 <br><br><br>
 <h3>GCC - arm</h3>
-
+<p>install</p>
+<div>https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm</div>
+<p>usage</p>
 <div class="cmd">arm-none-eabi-gcc</div>
+
 
 <br><br><br>
 <h3>GCC - avr</h3>
+<p>install</p>
+<div class="cmd">brew tap osx-cross/avr</div>
+<div class="cmd">brew install avr-gcc</div>
+<p>install - avr-libc</p>
+<div>http://savannah.nongnu.org/projects/avr-libc</div>
+<div class="cmd">svn co svn://svn.savannah.nongnu.org/avr-libc/trunk</div>
+<div class="cmd">cd trunk/avr-libc/</div>
+<div class="cmd">PREFIX=/usr/local/Cellar/avr-gcc/8.3.0</div>
+<div class="cmd">export $PREFIX</div>
+<div class="cmd">./bootstrap</div>
+<div class="cmd">./configure --prefix=$PREFIX --build=`./config.guess` --host=avr</div>
+<div class="cmd">make</div>
+<div class="cmd">sudo make install</div>
+<div>http://packs.download.atmel.com</div>
+<div>(gcc/dev/atmega4809/device-specs/specs-atmega4809)</div>
+<div class="cmd">cd $PREFIX/lib/avr-gcc/8/gcc/avr/8.3.0/device-specs</div>
+<div>(gcc/dev/atmega4809/avrxmega3/*)</div>
+<div class="cmd">cd $PREFIX/avr/lib/avrxmega3</div>
+<div>(include/avr/iom4809.h)
+<div class="cmd">cd $PREFIX/avr/include/avr</div>
+<p>install - avrdude</p>
+<div>http://download.savannah.gnu.org/releases/avrdude/</div>
+<div class="cmd">./configure</div>
+<div class="cmd">make</div>
+<div class="cmd">sudo make install</div>
+<p>usage</p>
+<div class="cmd">avr-gcc -mmcu=atmega4809 -o out.bin main.c</div>
+<div class="cmd">avr-objcopy -j .text -j .data -O ihex out.bin out.hex</div>
+<div class="cmd">avrdude -p m4809 -c atmelice_updi -U flash:w:out.hex:i -F -P usb</div>
 
-<div class="cmd">avr-gcc</div>
+
+<br><br><br>
+<h3>References:</h3>
+<ul>
+<li>- (2016). AVR Setup. http://www.ladyada.net/learn/avr/setup-mac.html</li>
+<li>- (2014). Building and Installing the GNU Tool Chain. http://www.nongnu.org/avr-libc/user-manual/install_tools.html</li>
+</ul>
+
