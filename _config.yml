@@ -26,6 +26,11 @@ defaults:
       categories: [tool]
   -
     scope:
+      path: "_posts/tool/python"
+    values:
+      categories: [tool, python]
+  -
+    scope:
       path: "_posts/tool/ruby"
     values:
       categories: [tool, ruby]
