@@ -16,6 +16,11 @@ defaults:
       categories: [system, os]
   -
     scope:
+      path: "_posts/system/processor"
+    values:
+      categories: [system, processor]
+  -
+    scope:
       path: "_posts/technik"
     values:
       categories: [technik]
