@@ -5,24 +5,38 @@ title: GCC
 
 <br><br>
 <h3>GCC</h3>
-<p>usage</p>
+<p>Usage</p>
+<dl>
+	<dd>
 <div class="cmd">gcc -o out.bin main.c</div>
+	</dd>
+</dl>
 
 
 <br><br><br>
 <h3>GCC - arm</h3>
-<p>install</p>
+<p>Install</p>
+<dl>
+	<dd>
 <div>https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm</div>
-<p>usage</p>
+	</dd>
+</dl>
+<p>Usage</p>
+<dl>
+	<dd>
 <div class="cmd">arm-none-eabi-gcc</div>
+	</dd>
+</dl>
 
 
 <br><br><br>
 <h3>GCC - avr</h3>
-<p>install</p>
+<p>Install</p>
+<ol>
+	<li>install</li>
 <div class="cmd">brew tap osx-cross/avr</div>
 <div class="cmd">brew install avr-gcc</div>
-<p>install - avr-libc</p>
+	<li>install - avr-libc</li>
 <div>http://savannah.nongnu.org/projects/avr-libc</div>
 <div class="cmd">svn co svn://svn.savannah.nongnu.org/avr-libc/trunk</div>
 <div class="cmd">cd trunk/avr-libc/</div>
@@ -37,9 +51,9 @@ title: GCC
 <div class="cmd">cd $PREFIX/avr/lib/avrxmega3</div>
 <div>(include/avr/iom4809.h)
 <div class="cmd">cd $PREFIX/avr/include/avr</div>
-<p>install - libhidapi</p>
+	<li>install - libhidapi</li>
 <div class="cmd">brew install hidapi</div>
-<p>install - avrdude</p>
+	<li>install - avrdude</li>
 <div>http://savannah.nongnu.org/projects/avrdude</div>
 <div class="cmd">svn co svn://svn.savannah.nongnu.org/avrdude/trunk</div>
 <div class="cmd">cd trunk/avrdude/</div>
@@ -47,10 +61,16 @@ title: GCC
 <div class="cmd">./configure</div>
 <div class="cmd">make</div>
 <div class="cmd">sudo make install</div>
-<p>usage</p>
+</ol>
+<p>Usage</p>
+<dl>
+	<dd>
 <div class="cmd">avr-gcc -mmcu=atmega4809 -o out.bin main.c</div>
 <div class="cmd">avr-objcopy -j .text -j .data -O ihex out.bin out.hex</div>
 <div class="cmd">avrdude -p m4809 -c atmelice_updi -U flash:w:out.hex:i -F [-P usb]</div>
+	</dd>
+</dl>
+
 
 
 <br><br><br>
