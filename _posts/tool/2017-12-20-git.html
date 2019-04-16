@@ -3,26 +3,41 @@ title: Git
 ---
 <h1>{{ page.title }}</h1>
 
+<style type="text/css">
+li {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+</style>
+
 <br><br>
 <h3>Basic Operation</h3>
-
-<p>commit</p>
+<ul>
+<li>operate</li>
+<p>add<p>
 <div class="cmd">git add [file]</div>
-<div class="cmd">git commit -m "log"</div>
-<div class="cmd">git push</div>
+<p>delete<p>
+<div class="cmd">rm -rf [files]</div>
+<div class="cmd">git add -u</div>
 <p>undo uncommitted change</p>
 <div class="cmd">git checkout -- .</div>
-<p>status</p>
+<p>cherry pick</p>
+<div class="cmd">git cherry-pick [commit]</div>
+<p>commit</p>
+<div class="cmd">git commit -m "log"</div>
+<div class="cmd">git push</div>
+<li>status</li>
 <div class="cmd">git status</div>
 <div class="cmd">git status -s</div>
 <div class="cmd">git diff</div>
-<p>log</p>
+<li>log</li>
 <div class="cmd">git log --stat</div>
+</ul>
 
 <br><br><br>
 <h3>Init</h3>
-
-<p>init</p>
+<ul>
+<li>init</li>
 <div class="cmd">git init</div>
 <div class="cmd">git remote add origin [url]</div>
 <p>(part of the repository)</p>
@@ -32,10 +47,12 @@ title: Git
 <p>(specific branch)</p>
 <div class="cmd">git pull --depth=1</div>
 <div class="cmd">git checkout --track origin/[remote_branch]</div>
+</ul>
 
 <br><br><br>
 <h3>Branch</h3>
-
+<ul>
+<li>local</li>
 <p>local branch: create and enter (based on current branch)</p>
 <div class="cmd">git checkout -b [branch]</div>
 <p>local branch: create and enter (based on specified branch) (no tracking)</p>
@@ -44,20 +61,25 @@ title: Git
 <div class="cmd">git checkout --track origin/[remote_branch]</div>
 <p>local branch: delete</p>
 <div class="cmd">git branch -d [branch]</div>
+<li>remote</li>
 <p>remote branch: create (no tracking)</p>
 <div class="cmd">git push origin [local_branch]:[remote_branch]</div>
 <p>remote branch: create (with tracking)</p>
 <div class="cmd">git push -u origin [remote_branch]</div>
-<p>show local all</p>
-<div class="cmd">git branch -a</div>
+<li>relation</li>
 <p>relation: create</p>
 <div class="cmd">git branch --set-upstream-to=origin/[remote_branch]</div>
 <p>relation: show</p>
 <div class="cmd">git branch -vv</div>
+<li>show</li>
+<p>show local all</p>
+<div class="cmd">git branch -a</div>
+</ul>
 
 <br><br><br>
 <h3>Remote</h3>
-
+<ul>
+<li>operate</li>
 <p>create</p>
 <div class="cmd">git remote add [remote_name] [url]</div>
 <p>get info</p>
@@ -66,10 +88,12 @@ title: Git
 <div class="cmd">git remote show [remote_name]</div>
 <p>delete</p>
 <div class="cmd">git remote rm [remote_name]</div>
+</ul>
 
 <br><br><br>
 <h3>Merge</h3>
-
+<ul>
+<li>check</li>
 <p>check diff before merge (all)</p>
 <div class="cmd">git diff --name-status branch_1 branch_2</div>
 <p>check diff before merge (all details)</p>
@@ -80,18 +104,21 @@ title: Git
 <div class="cmd">git diff branch_1...branch_2</div>
 <p>check diff before merge (one)</p>
 <div class="cmd">git diff branch_1...branch_2 -- one_file</div>
+<li>operate</li>
 <p>merge</p>
 <div class="cmd">git merge [branch]</div>
 <p>merge without commit</p>
 <div class="cmd">git merge --no-commit [branch]</div>
-<p>graphic tool</p>
+<li>graphic tool</li>
 <div class="cmd">git mergetool</div>
-<p>upload</p>
+<li>upload</li>
 <div class="cmd">git push</div>
+</ul>
 
 <br><br><br>
 <h3>Tag</h3>
-
+<ul>
+<li>operate</li>
 <p>create (lightweight)</p>
 <div class="cmd">git tag [name]</div>
 <p>create (annotated)</p>
@@ -102,10 +129,13 @@ title: Git
 <div class="cmd">git push origin [name]</div>
 <p>upload all</p>
 <div class="cmd">git push origin --tags</div>
+</ul>
 
 
 <br><br><br>
 <h3>Config</h3>
-
+<ul>
+<li>global</li>
 <p>global gitignore</p>
 <div class="cmd">git config --global core.excludesfile '~/.gitignore'</div>
+</ul>
