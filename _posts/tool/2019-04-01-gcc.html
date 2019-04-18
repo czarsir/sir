@@ -16,11 +16,19 @@ title: GCC
 <br><br><br>
 <h3>GCC - arm</h3>
 <p>Install</p>
-<dl>
-	<dd>
+<ol>
+	<li>install</li>
 <div>https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm</div>
-	</dd>
-</dl>
+	<li>install - OpenOCD</li>
+<div class="cmd">brew install openocd --HEAD</div>
+<div>or</div>
+<div class="cmd">git clone git://git.code.sf.net/p/openocd/code openocd</div>
+<div class="cmd">cd openocd</div>
+<div class="cmd">./bootstrap nosubmodule</div>
+<div class="cmd">./configure --prefix=/usr/local/opt/open-ocd --enable-buspirate --enable-stlink --enable-dummy --enable-jtag_vpi --enable-remote-bitbang</div>
+<div class="cmd">make</div>
+<div class="cmd">sudo make install</div>
+</ol>
 <p>Usage</p>
 <dl>
 	<dd>
