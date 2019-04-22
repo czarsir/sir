@@ -3,6 +3,13 @@ title: RIOT
 ---
 <h1>{{ page.title }}</h1>
 
+<style>
+div[cas]::before {content: "\21B3";}
+div[cas="1"] {padding-left:  50px;}
+div[cas="2"] {padding-left: 100px;}
+div[cas="3"] {padding-left: 150px;}
+</style>
+
 <br><br>
 <h3>Repository</h3>
 <p>git@github.com:RIOT-OS/RIOT.git</p>
@@ -10,28 +17,28 @@ title: RIOT
 
 <br><br><br>
 <h3>Workflow</h3>
-<div>
-(reset_handler_default)<br>
->board_init<br>
-&nbsp;&nbsp;&nbsp;|-&nbsp;gpio_init<br>
-&nbsp;&nbsp;&nbsp;|-&nbsp;cpu_init<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-&nbsp;cortexm_init<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-&nbsp;periph_clk_en<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-&nbsp;periph_init<br>
-
->__libc_init_array<br>
-&nbsp;&nbsp;&nbsp;|-&nbsp;_init<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-&nbsp;uart_stdio_init<br>
-
->kernel_init<br>
-&nbsp;&nbsp;&nbsp;|-&nbsp;thread_create (idle_thread)<br>
-&nbsp;&nbsp;&nbsp;|-&nbsp;thread_create (main_trampoline)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-&nbsp;auto_init<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-&nbsp;gnrc_sixlowpan_init<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-&nbsp;gnrc_ipv6_init<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-&nbsp;auto_init_at86rf215<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-&nbsp;main<br>
-</div>
+<p>(reset_handler_default)</p>
+<p></p>
+<div>>board_init</div>
+	<div cas="1">gpio_init</div>
+	<div cas="1">cpu_init</div>
+		<div cas="2">cortexm_init</div>
+		<div cas="2">periph_clk_en</div>
+		<div cas="2">periph_init</div>
+			<div cas="3">spi_init</div>
+<p></p>
+<div>>__libc_init_array</div>
+	<div cas="1">_init</div>
+		<div cas="2">uart_stdio_init</div>
+<p></p>
+<div>>kernel_init</div>
+	<div cas="1">thread_create (idle_thread)</div>
+	<div cas="1">thread_create (main_trampoline)</div>
+		<div cas="2">auto_init</div>
+			<div cas="3">gnrc_sixlowpan_init</div>
+			<div cas="3">gnrc_ipv6_init</div>
+			<div cas="3">auto_init_at86rf215</div>
+		<div cas="2">main</div>
 
 
 
