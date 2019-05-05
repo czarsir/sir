@@ -3,6 +3,7 @@ layout: default
 ---
 <h1>Haupt</h1>
 
+<br><br>
 <h3>Category:</h3>
 {% assign cate_current = nil %}
 {% assign cate_lvl = 0 %}
@@ -11,10 +12,16 @@ layout: default
 {% assign post_sort = site.posts | sort:"categories" %}
 {% for post in post_sort %}
 
-  {% comment %} /*** Pfad ***/ {% endcomment %}
+	{% if post.categories contains "addins" %}
+		{% continue %}
+	{% endif %}
+
+  {% comment %} /********* Category *********/
+  {% endcomment %}
   {% if cate_current != post.categories %}
 
-    {% comment %} /*** Pfad - Level (root:0) ***/ {% endcomment %}
+    {% comment %} /****** get Cascade Level ******/
+    {% endcomment %}
     {% for i in (1..post.categories.size) %}
       {% assign idx = i | minus: 1 %}     
       {% if cate_current[idx] != post.categories[idx] %}
@@ -24,23 +31,28 @@ layout: default
       {% endif %}
     {% endfor %}
 
+	{% comment %} /****** Pfad ******/
+	{% endcomment %}
     {% for j in (1..post.categories.size) offset:cate_lvl_diff %}
       {% assign cate_lvl = j | minus: 1 %}
 
-      {% comment %} /*** Pfad - Indicator ***/ {% endcomment %}
+      {% comment %} /*** Pfad - prepare Indicator ***/
+      {% endcomment %}
       {% assign cate_indicator = "" %}
       {% for i in (1..cate_lvl) %}
         {% assign cate_indicator = cate_indicator | append:"&nbsp&nbsp&nbsp&nbsp" %} 
       {% endfor %}
       {% assign cate_indicator = cate_indicator | append:"+-&nbsp" %} 
   
-      {% comment %} /*** Pfad - Show ***/ {% endcomment %}
+      {% comment %} /*** Pfad - show ***/
+      {% endcomment %}
       <p>{{cate_indicator}}{{ cate_current[cate_lvl] }}</p>
     {% endfor %}
 
   {% endif %}
 
-  {% comment %} /*** Name ***/ {% endcomment %}
+  {% comment %} /********* Name *********/
+  {% endcomment %}
   {% assign indent = "&nbsp" %}
   {% for i in post.categories %}
     {% assign indent = indent | append:"&nbsp&nbsp&nbsp&nbsp" %}
@@ -49,6 +61,7 @@ layout: default
 
 {% endfor %}
 
+<br><br><br>
 <h3>References:</h3>
 <ul>
   <li><a href="https://jekyllrb.com/">jekyllrb.com</a></li>
