@@ -6,10 +6,18 @@ title: Make
 <br><br>
 <h3>Rules</h3>
 
-<p>Simple</p>
+<p>Simple ([Tab] before recipe)</p>
 <div class="cmd">target … : prerequisites …</div>
 <div class="cmd">&nbsp;&nbsp;&nbsp;&nbsp;recipe</div>
 <div class="cmd">&nbsp;&nbsp;&nbsp;&nbsp;...</div>
+
+<p>.PHONY</p>
+<div class="cmd">.PHONY: clean</div>
+<div class="cmd">clean:</div>
+<div class="cmd">&nbsp;&nbsp;&nbsp;&nbsp;rm -rf files</div>
+
+<p>Comment</p>
+<div class="cmd"># This is a comment.</div>
 
 
 
