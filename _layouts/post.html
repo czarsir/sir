@@ -64,6 +64,7 @@ td {
 <script>
 function resizeIframe(obj) {
 	obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+	document.getElementById("subttl").textContent = " ---> " + obj.contentWindow.document.getElementById("ttl").textContent;
 }
 </script>
 
