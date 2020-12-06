@@ -3,10 +3,49 @@ title: Vim
 ---
 <h1>{{ page.title }}</h1>
 
+<style type="text/css">
+li {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+</style>
+
 <br><br>
 <h3>Basic</h3>
 
 <p>.vimrc</p>
+<div class="cmd">" color</div>
 <div class="cmd">colorscheme pablo</div>
-<div class="cmd">set tabstop=4</div>
 <div class="cmd">syntax on</div>
+<div class="cmd">" encoding</div>
+<div class="cmd">set encoding=utf-8</div>
+<div class="cmd">" comments</div>
+<div class="cmd">set tabstop=4</div>
+<div class="cmd">set lines=60 columns=110</div>
+
+<br><br><br>
+<h3>Workspace</h3>
+
+<ul>
+<li>window</li>
+<p>new window (horizontal)</p>
+<div class="cmd">:He[xplore]</div>
+<p>new window (vertical)</p>
+<div class="cmd">:Ve[xplore]</div>
+<p>split window (horizontal)</p>
+<div class="cmd">:sp[lit]</div>
+<p>split window (vertical)</p>
+<div class="cmd">:vs[plit]</div>
+<p>move</p>
+<div class="cmd">Ctrl+W [hjkl]</div>
+<div class="cmd">Ctrl+W w    // next</div>
+<li>tab</li>
+<p>new tab</p>
+<div class="cmd">:Te[xplore]</div>
+<p>move</p>
+<div class="cmd">gt // next</div>
+<div class="cmd">gT // previous</div>
+<li>close all</li>
+<div class="cmd">:qa</div>
+<div class="cmd">:wqa</div>
+</ul>
