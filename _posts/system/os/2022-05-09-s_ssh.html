@@ -1,0 +1,24 @@
+---
+title: SSH Server
+categories: [addins]
+layout: addins
+---
+<h1 id="ttl" hidden>{{ page.title }}</h1>
+
+<h3>SSH Server</h3>
+
+<h4>Execution</h4>
+<div class="cmd">/usr/sbin/sshd -D</div>
+
+<h4>Lib</h4>
+<p>/usr/lib/libfipscheck.so*</>
+
+<h4>Config</h4>
+<p>/etc/ssh/*</>
+<ul>
+	<li>sshd_config</li>
+		<div>PermitRootLogin yes</div>
+		<div>PermitEmptyPasswords yes</div>
+	<li>*key*</li>
+		<div class="cmd">ssh-keygen -A</div>
+</ul>
