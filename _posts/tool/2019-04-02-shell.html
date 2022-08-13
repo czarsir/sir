@@ -22,8 +22,10 @@ title: Shell
 <p>grep</p>
 <div class="cmd">grep "string" -r . --color</div>
 <h4>+++ Disk +++</h4>
+<p>df: show disk info</p>
+<div class="cmd">df -T -h</div>
 <p>diskutil(macOS)</p>
 <div class="cmd">diskutil list</div>
 <div class="cmd">diskutil unmountDisk /dev/disk2</div>
 <p>dd</p>
-<div class="cmd">sudo dd if=/Users/lite.img of=/dev/disk2</div>
+<div class="cmd">dd if=/Users/lite.img of=/dev/disk2 [bs=1M] [count=100]</div>
