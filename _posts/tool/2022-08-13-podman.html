@@ -1,0 +1,26 @@
+---
+title: Podman
+---
+<h1>{{ page.title }}</h1>
+
+<br><br>
+<h3>Image</h3>
+<p>load from remote</p>
+<div class="cmd">podman pull docker.io/library/httpd</div>
+<p>load from local</p>
+<div class="cmd">podman load -i demo.tar</div>
+<p>show</p>
+<div class="cmd">podman images</div>
+
+<br><br><br>
+<h3>Container</h3>
+<p>create</p>
+<div class="cmd">podman run -dt demo:[demo_tag] /bin/bash</div>
+<p>enter a specific container</p>
+<div class="cmd">podman start [demo_id]</div>
+<div class="cmd">podman attach [demo_id]</div>
+<p>delete</p>
+<div class="cmd">podman rm [demo_id]</div>
+<p>show all</p>
+<div class="cmd">podman ps -a</div>
+
