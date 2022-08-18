@@ -3,24 +3,45 @@ title: Podman
 ---
 <h1>{{ page.title }}</h1>
 
+<style type="text/css">
+li {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+</style>
+
 <br><br>
 <h3>Image</h3>
-<p>load from remote</p>
+<ul>
+<li>load</li>
+<p>(from remote)</p>
 <div class="cmd">podman pull docker.io/library/httpd</div>
-<p>load from local</p>
+<p>(from local)</p>
 <div class="cmd">podman load -i demo.tar</div>
-<p>show</p>
+<li>show</li>
 <div class="cmd">podman images</div>
+</ul>
 
 <br><br><br>
 <h3>Container</h3>
-<p>create</p>
+<ul>
+<li>create</li>
+<p>interactive</p>
+<div class="cmd">podman run -it demo:[demo_tag] /bin/bash</div>
+<p>background</p>
 <div class="cmd">podman run -dt demo:[demo_tag] /bin/bash</div>
-<p>enter a specific container</p>
+<p>[option] mount</p>
+<div class="cmd">podman run -it --mount type=bind,src=/host_dir,dst=/container_dir[,U=true] demo:[demo_tag] /bin/bash</div>
+<p>[option] volume (bind mount)</p>
+<div class="cmd">podman run -it -v /host_dir:/container_dir demo:[demo_tag] /bin/bash</div>
+<p>[option] multi volume</p>
+<div class="cmd">podman run -it -v /host_dir1:/container_dir1 -v /host_dir2:/container_dir2 demo:[demo_tag] /bin/bash</div>
+<li>enter a specific container</li>
 <div class="cmd">podman start [demo_id]</div>
 <div class="cmd">podman attach [demo_id]</div>
-<p>delete</p>
+<li>delete</li>
 <div class="cmd">podman rm [demo_id]</div>
-<p>show all</p>
+<li>show all</li>
 <div class="cmd">podman ps -a</div>
+</ul>
 
