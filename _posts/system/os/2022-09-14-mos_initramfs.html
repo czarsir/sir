@@ -5,8 +5,60 @@ layout: addins
 ---
 <h1 id="ttl" hidden>{{ page.title }}</h1>
 
+<style type="text/css">
+li {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+</style>
+
+
+<br>
+<h3>Prepare</h3>
+<ul>
+<li>prepare manually</li>
+<div class="cmd">cd ramfs</div>
+<div class="cmd">find . | cpio -o -H newc | gzip > ../initramfs_data.cpio.gz</div>
+<li>prepare via compiling kernel</li>
+<p>default_initramfs_cpio_list (relative to the build directory)</p>
+<div class="cmd"># optional</div>
+<div class="cmd">dir /dev 0755 0 0</div>
+<div class="cmd">nod /dev/console 0600 0 0 c 5 1</div>
+<div class="cmd">dir /sys 0755 0 0</div>
+<div class="cmd">dir /proc 0755 0 0</div>
+<div class="cmd">dir /root 0700 0 0</div>
+<div class="cmd"># optional</div>
+<div class="cmd">dir /bin 0755 0 0</div>
+<div class="cmd">file /bin/busybox ramfs/bin/busybox 0755 0 0</div>
+<div class="cmd">slink /bin/sh busybox 0777 0 0</div>
+<div class="cmd"># essential (shell or app)</div>
+<div class="cmd">file /init_1 ramfs/init_1.sh 0755 0 0</div>
+<p>or (NOT tested)</p>
+<div class="cmd">/usr/gen_initramfs_list.sh [path_to_ramfs]</div>
+<li>prepare via compiling kernel directly from source folder "./ramfs" (barely work)</li>
+</ul>
+
+<br>
 <h3>Config</h3>
-<div class="cmd">scripts/gen_initramfs_list.sh [path_to_rootfs]</div>
+<ul>
+<li>menuconfig</li>
+<div class="cmd">CONFIG_BLK_DEV_INITRD=y</div>
+<div class="cmd">CONFIG_INITRAMFS_SOURCE="./initramfs_data.cpio.gz"</div>
+<div class="cmd"># CONFIG_INITRAMFS_SOURCE="./ramfs/default_initramfs_cpio_list"</div>
+<div class="cmd"># CONFIG_INITRAMFS_SOURCE="./ramfs"</div>
+<li>cmdline</li>
+<div class="cmd">rdinit=/init_1</div>
+</ul>
+
+<br>
+<h3>init_1.sh</h3>
+<div class="cmd">#!/bin/sh</div>
+<div class="cmd">busybox mount -t devtmpfs devtmpfs /dev</div>
+<div class="cmd">busybox mount -t sysfs sysfs /sys</div>
+<div class="cmd">busybox mount -t proc proc /proc</div>
+<div class="cmd">/bin/sh</div>
+
+
 
 <br><br><br>
 <h3>References:</h3>
