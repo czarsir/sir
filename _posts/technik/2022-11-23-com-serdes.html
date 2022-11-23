@@ -1,0 +1,48 @@
+---
+title: SerDes
+categories: [addins]
+layout: addins
+---
+<h1 id="ttl" hidden>{{ page.title }}</h1>
+
+<h3>Initialization</h3>
+
+<p>[at the Deserializer side]</p>
+<ul>
+	<li>set 3Gbps or 6Gbps (fixed at the other side via Pins)</li>
+	<li>check Link Lock</li>
+	<li>TODO: assign Serializer Address</li>
+</ul>
+
+
+
+<br>
+<h3>Serializer</h3>
+
+<ul>
+	<li>MIPI Rx: reset &amp; enable clock</li>
+	<li>Lane Reassignment</li>
+	<li>Pixel Mode / Tunnel Mode</li>
+	<ul>
+		<li>Date Type (DT) selection for pipeline</li>
+		<li>DT reassignment</li>
+		<li>Bits Per Pixel (BPP) reassignment</li>
+		<li>Virtual Channel (VC) reassignment</li>
+		<li>[optional] VC remapping</li>
+	</ul>
+	<li>Debug</li>
+	<ul>
+		<li>PCLK detect</li>
+		<li>DE &amp; VS detect</li>
+	</ul>
+</ul>
+
+
+
+<br>
+<h3>Deserializer</h3>
+
+
+
+<br>
+<h3>Sensor</h3>
