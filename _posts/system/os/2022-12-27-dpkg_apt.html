@@ -8,7 +8,11 @@ layout: addins
 <h3>Advanced Packaging Tool (APT)</h3>
 
 <br>
+<p>Prepare</p>
+<div class="cmd">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/lib/aarch64-linux-gnu/:/usr/lib/aarch64-linux-gnu/</div>
+
 <p>Install - (dependencies)</p>
+<div class="cmd">
 dpkg -i libaudit-common_2.8.4-3_all.deb
 dpkg -i --force-all libc6_2.36-6_arm64.deb
 dpkg -i gcc-12-base_12.2.0-9_arm64.deb
@@ -53,7 +57,40 @@ dpkg -i libp11-kit0_0.23.15-2+deb10u1_arm64.deb
 dpkg -i libtasn1-6_4.13-3_arm64.deb
 dpkg -i libgnutls30_3.6.7-4+deb10u9_arm64.deb
 dpkg -i libseccomp2_2.3.3-4_arm64.deb
+</div>
 
 <p>Install</p>
 <div class="cmd">dpkg -i apt_1.8.2.3_arm64.deb</div>
 
+<p>Config</p>
+<ul>
+	<li>/etc/apt/sources.list</li>
+	<div class="cmd">deb [trusted=yes] http://deb.debian.org/debian buster main</div>
+	<div>or</div>
+	<div class="cmd">deb http://ports.ubuntu.com/ubuntu-ports/ jammy main restricted</div>
+	<div class="cmd">deb http://ports.ubuntu.com/ubuntu-ports/ jammy universe</div>
+	<li>update</li>
+	<div class="cmd">apt [--allow-unauthenticated] update</div>
+</ul>
+
+<p>Fix</p>
+<div class="cmd">apt --fix-broken install</div>
+<div class="cmd">apt install dialog</div>
+<div class="cmd">apt install gnupg</div>
+<div class="cmd">apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 648ACFD622F3D138</div>
+<div class="cmd">apt install init-system-helpers</div>
+<div class="cmd">apt install apt-utils</div>
+<div>(change the source to bookworm)</div>
+<div class="cmd">apt install ucf</div>
+<div class="cmd">cat /var/lib/apt/lists/*_Packages > /var/lib/dpkg/available</div>
+<div class="cmd">dpkg --configure -a</div>
+
+<br>
+<p>Commands:</p>
+<ul>
+	<li>list (all versions)</li>
+	<div class="cmd">apt list --all-versions [package_name]</div>
+	<li>update dpkg ???</li>
+	<div class="cmd">apt-mark hold dpkg</div>
+	<div class="cmd">apt install dpkg=1.21.1ubuntu2.1</div>
+</ul>
