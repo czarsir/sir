@@ -1,0 +1,31 @@
+---
+title: Dpkg
+categories: [addins]
+layout: addins
+---
+<h1 id="ttl" hidden>{{ page.title }}</h1>
+
+<h3>Debian Package Manager</h3>
+
+<br>
+<p>Install - (dependencies)</p>
+
+<p>Install</p>
+<div class="cmd">wget http://ftp.cn.debian.org/debian/pool/main/d/dpkg/dpkg_1.21.13_arm64.deb</div>
+<div class="cmd">ar x dpkg_1.21.13_arm64.deb</div>
+<div class="cmd">tar xf data.tar.xz</div>
+
+<p>Config</p>
+<div class="cmd">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/lib/aarch64-linux-gnu/:/usr/lib/aarch64-linux-gnu/</div>
+<div class="cmd">/var/lib/dpkg/status</div>
+<div class="cmd">mkdir -p /var/lib/dpkg/updates/</div>
+<div class="cmd">ldconfig</div>
+<div class="cmd">/var/lib/dpkg/info/format-new</div>
+
+
+
+<br><br><br>
+<h3>References:</h3>
+<ul>
+	<li>- (2022). Dpkg. <a href="https://www.dpkg.org/">https://www.dpkg.org/</a></li>
+</ul>
