@@ -22,6 +22,14 @@ li {
 <div class="cmd">" comments</div>
 <div class="cmd">set tabstop=4</div>
 <div class="cmd">set lines=60 columns=110</div>
+<p>turn the line into lowercase</p>
+<div class="cmd">guu</div>
+<p>turn the line into uppercase</p>
+<div class="cmd">gUU</div>
+<p>indent</p>
+<div class="cmd">==</div>
+<p>indent (the whole block)</p>
+<div class="cmd">=%</div>
 
 <br><br><br>
 <h3>Workspace</h3>
@@ -39,6 +47,9 @@ li {
 <p>move</p>
 <div class="cmd">Ctrl+W [hjkl]</div>
 <div class="cmd">Ctrl+W w    // next</div>
+<p>scroll synchronously</p>
+<div class="cmd">:set scrollbind</div>
+<div class="cmd">:set scb!    // unset</div>
 <li>tab</li>
 <p>new tab</p>
 <div class="cmd">:Te[xplore]</div>
@@ -48,4 +59,17 @@ li {
 <li>close all</li>
 <div class="cmd">:qa</div>
 <div class="cmd">:wqa</div>
+</ul>
+
+<br><br><br>
+<h3>Session</h3>
+<p>save</p>
+<div class="cmd">:mksession ~/.mysession.vim</div>
+<p>open</p>
+<div class="cmd">vim -S ~/.mysession.vim</div>
+
+<br><br><br>
+<h3>References:</h3>
+<ul>
+	<li>- (2023). Vim. <a href="https://cs.oberlin.edu/~kuperman/help/vim/windows.html">https://cs.oberlin.edu/~kuperman/help/vim/windows.html</a></li>
 </ul>
