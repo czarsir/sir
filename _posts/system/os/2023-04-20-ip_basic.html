@@ -5,9 +5,20 @@ layout: addins
 ---
 <h1 id="ttl" hidden>{{ page.title }}</h1>
 
+<h2>ip</h2>
+
+<h4>ip route</h4>
+
+<div class="cmd">ip route add 10.0.0.0/24 [via 192.168.1.233] [dev eth1]</div>
+
+
+
+<br><br>
+
 <h2>iptables</h2>
 
 <h4>ip forward</h4>
+
 <p>/etc/sysctl.conf</p>
 <div class="cmd">net.ipv4.ip_forward=1</div>
 <p>check</p>
