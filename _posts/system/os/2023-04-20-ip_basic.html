@@ -1,0 +1,17 @@
+---
+title: Basic
+categories: [addins]
+layout: addins
+---
+<h1 id="ttl" hidden>{{ page.title }}</h1>
+
+<h2>iptables</h2>
+
+<h4>ip forward</h4>
+<p>/etc/sysctl.conf</p>
+<div class="cmd">net.ipv4.ip_forward=1</div>
+<p>check</p>
+<div class="cmd">iptables -L -v -n</div>
+<p>config</p>
+<div class="cmd">iptables -A FORWARD -j ACCEPT</div>
+<div class="cmd">iptables -t nat -s 192.168.1.0/24 -A POSTROUTING -j MASQUERADE</div>
