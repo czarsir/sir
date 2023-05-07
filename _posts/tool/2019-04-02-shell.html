@@ -5,9 +5,17 @@ title: Shell
 
 <br><br>
 <h3>Environment</h3>
-<p>configure in .bash_profile(macOS) or .bashrc</p>
+<p>configure in </p>
+<ol>
+	<li>/etc/profile</li>
+	<li>
+		<div>bash: .bash_profile(macOS) or .bashrc</div>
+		<div>ash: .profile</div>
+	</li>
+</ol>
 <div class="cmd">PATH="/home/user/opt/gcc-arm-none-eabi/bin:$PATH"</div>
 <div class="cmd">export PATH</div>
+<div class="cmd">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/your_path/lib</div>
 <p>show</p>
 <div class="cmd">printenv [name]</div>
 
