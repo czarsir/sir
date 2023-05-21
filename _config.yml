@@ -16,6 +16,11 @@ defaults:
       categories: [system, os]
   -
     scope:
+      path: "_posts/system/middleware"
+    values:
+      categories: [system, middleware]
+  -
+    scope:
       path: "_posts/system/processor"
     values:
       categories: [system, processor]
