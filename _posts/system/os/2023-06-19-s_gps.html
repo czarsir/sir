@@ -1,0 +1,36 @@
+---
+title: GPS
+categories: [addins]
+layout: addins
+---
+<h1 id="ttl" hidden>{{ page.title }}</h1>
+
+<h3>GPSd</h3>
+
+<p>Execution</p>
+<div class="cmd">/path_to/gpsd [-D 5] -n /dev/tty1 /dev/pps0 [-F /var/run/gpsd.sock]</div>
+
+<p>Test</p>
+<div class="cmd">gpsmon -n</div>
+<div>or</div>
+<div class="cmd">gpsmon -t u-blox</div>
+
+
+
+<br><br>
+<h3>PPS (Kernel Support)</h3>
+
+<p>DTS</p>
+<div class="cmd">pps {</div>
+<div class="cmd">	compatible = "pps-gpio";</div>
+<div class="cmd">	gpios = <&gpio1 10 GPIO_ACTIVE_HIGH>;</div>
+<div class="cmd">	assert-falling-edge;</div>
+<div class="cmd">	status = "okay";</div>
+<div class="cmd">}</div>
+
+<p>Config</p>
+<div class="cmd">CONFIG_PPS=y</div>
+<div class="cmd">CONFIG_PPS_CLIENT_GPIO=y</div>
+
+<p>Test</p>
+<div class="cmd">cat /sys/class/pps/pps0/assert</div>
