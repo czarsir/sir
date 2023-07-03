@@ -1,0 +1,42 @@
+---
+title: Proc FS
+categories: [addins]
+layout: addins
+---
+<h1 id="ttl" hidden>{{ page.title }}</h1>
+
+
+<h3>Porc FS</h3>
+<p>make node</p>
+<div class="cmd">par_dir = proc_mkdir("parent_dir", NULL);</div>
+<ul>
+	<li>simple</li>
+	<div class="cmd">proc_create_single_data("my_node", 0444, par_dir, show_func, priv_data);</div>
+	<li>normal</li>
+	<div class="cmd">static int my_proc_open(struct inode *inode, struct file *file)</div>
+	<div class="cmd">{</div>
+	<div class="cmd">return single_open(file, show_func, inode->private);</div>
+	<div class="cmd">}</div>
+	<div class="cmd">/*** file ops ***/</div>
+	<div class="cmd">static const struct proc_ops my_fops  = {</div>
+	<div class="cmd">.open = my_proc_open,</div>
+	<div class="cmd">.read = seq_read,</div>
+	<div class="cmd">.write = my_proc_write, // optional</div>
+	<div class="cmd">.llseek = seq_lseek,</div>
+	<div class="cmd">.release = single_release,</div>
+	<div class="cmd">};</div>
+	<div class="cmd">proc_create("my_node", 0444, par_dir, my_fops);</div>
+</ul>
+<p>feed the Seq File Buffer while opening the node</p>
+<div class="cmd">show_func();</div>
+
+
+<br><br>
+<h3>Seq File</h3>
+<p>open seq_file</p>
+<div class="cmd">single_open();</div>
+<p>feed seq_file</p>
+<div class="cmd">seq_printf(); // usually in show_func(), feed only once.</div>
+<p>read from seq_file</p>
+<div class="cmd">seq_read();</div>
+
