@@ -1,0 +1,23 @@
+---
+title: Sys FS
+categories: [addins]
+layout: addins
+---
+<h1 id="ttl" hidden>{{ page.title }}</h1>
+
+
+<h3>Sys FS</h3>
+<p>create device</p>
+<ul>
+	<li>base</li>
+	<div class="cmd">struct class *my_class = class_create(THIS_MODULE, "my_class");</div>
+	<div class="cmd">struct class_device *my_dev = device_create(my_class, NULL, MKDEV(128, 0), NULL, "my_dev");</div>
+	<li>group attr</li>
+</ul>
+
+<p>destroy device</p>
+<ul>
+	<li>base</li>
+	<div class="cmd">device_destroy(my_class, devt);</div>
+	<div class="cmd">class_destroy(my_class);</div>
+</ul>
