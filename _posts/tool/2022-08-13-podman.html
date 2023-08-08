@@ -13,13 +13,22 @@ li {
 <br><br>
 <h3>Image</h3>
 <ul>
+<li>create</li>
+	<p>(from blank)</p>
+	<div class="cmd">(todo)</div>
+	<p>(from container)</p>
+	<div class="cmd">podman commit [container_id]</div>
+	<div class="cmd">podman tag [image_id] [name]:[tag]</div>
+	<div class="cmd">podman save > local_image.tar [name]:[tag]</div>
 <li>load</li>
-<p>(from remote)</p>
-<div class="cmd">podman pull docker.io/library/httpd</div>
-<p>(from local)</p>
-<div class="cmd">podman load -i demo.tar</div>
+	<p>(from remote)</p>
+	<div class="cmd">podman pull docker.io/library/httpd</div>
+	<p>(from local)</p>
+	<div class="cmd">podman load -i demo.tar</div>
+<li>delete</li>
+	<div class="cmd">podman rmi [image_id]</div>
 <li>show</li>
-<div class="cmd">podman images</div>
+	<div class="cmd">podman images</div>
 </ul>
 
 <br><br><br>
@@ -37,11 +46,16 @@ li {
 <p>[option] multi volume</p>
 <div class="cmd">podman run -it -v /host_dir1:/container_dir1 -v /host_dir2:/container_dir2 demo:[demo_tag] /bin/bash</div>
 <li>enter a specific container</li>
-<div class="cmd">podman start [demo_id]</div>
-<div class="cmd">podman attach [demo_id]</div>
+	<div class="cmd">podman start [demo_id]</div>
+	<div class="cmd">podman attach [demo_id]</div>
+<li>operate</li>
+	<p>add user</p>
+	<div class="cmd">podman exec -i [container_id] /bin/bash -c "useradd [username] --uid=[233]"</div>
+	<p>enter with specific user (tar tries to preserve the file permissions when run as root)</p>
+	<div class="cmd">podman exec -u [username] -it [container_id] /bin/bash</div>
 <li>delete</li>
-<div class="cmd">podman rm [demo_id]</div>
+	<div class="cmd">podman rm [demo_id]</div>
 <li>show all</li>
-<div class="cmd">podman ps -a</div>
+	<div class="cmd">podman ps -a</div>
 </ul>
 
