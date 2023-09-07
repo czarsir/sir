@@ -21,3 +21,74 @@ layout: addins
 	<div class="cmd">device_destroy(my_class, devt);</div>
 	<div class="cmd">class_destroy(my_class);</div>
 </ul>
+
+
+
+<br><br>
+<h3>Demo</h3>
+
+<p>Variables</p>
+<div class="cmd">static dev_t my_devt;</div>
+<div class="cmd">static struct cdev my_cdev;</div>
+<div class="cmd">static struct class *my_class;</div>
+<div class="cmd">static struct device *my_device;</div>
+<p>Attr</p>
+<pre class="cmd">
+static DEVICE_ATTR_RO(info);
+
+static struct attribute *my_attrs[] = {
+	&dev_attr_info.attr,
+	NULL,
+};
+
+static const struct attribute_group my_group = {
+	.attrs = my_attrs,
+};
+
+static const struct attribute_group *my_groups[] = {
+	&my_group,
+	NULL,
+};
+</pre>
+<p>Init</p>
+<pre class="cmd">
+alloc_chrdev_region(&my_devt, 0, 1, "my");
+cdev_init(&my_cdev, &fops);
+err = cdev_add(&my_cdev, my_devt, 1);
+if (err) {
+	pr_err("[error] failed to add char device \n");
+	goto err_out;
+}
+
+my_class = class_create(THIS_MODULE, "my_class");
+if (IS_ERR(my_class)) {
+	pr_err("[error] failed to allocate class \n");
+	err = PTR_ERR(my_class);
+	goto err_class;
+}
+my_class->dev_groups = my_groups;
+
+my_device = device_create(my_class, NULL, my_devt, NULL, "my");
+if (IS_ERR(my_device)) {
+	pr_err("[error] failed to create device \n");
+	err = PTR_ERR(my_device);
+	goto err_device;
+}
+
+return 0;
+
+err_device:
+	class_destroy(my_class);
+err_class:
+	cdev_del(&my_cdev);
+	unregister_chrdev_region(my_devt, 1);
+err_out:
+	return err;
+</pre>
+<p>Exit</p>
+<pre class="cmd">
+device_destroy(my_class, my_devt);
+class_destroy(my_class);
+cdev_del(&my_cdev);
+unregister_chrdev_region(my_devt, 1);
+</pre>
