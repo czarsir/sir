@@ -5,6 +5,23 @@ layout: addins
 ---
 <h1 id="ttl" hidden>{{ page.title }}</h1>
 
+<h3>find</h3>
+<p>work with other execution</p>
+<div class="cmd">find . -name TargetName | xargs rm </div>
+<div class="cmd">find . -name TargetName  -exec rm {} \;</div>
+<ul>
+	<li>seperate execution for each file</li>
+</ul>
+<div class="cmd">find . -name TargetName  -exec rm {} +</div>
+<ul>
+	<li>append all files, like xargs</li>
+</ul>
+<p>delete</p>
+<div class="cmd">find . -name TargetName  -delete</div>
+
+
+
+<br><br>
 <h3>uart</h3>
 <div class="cmd">stty 9600 -F /dev/ttyS0 [-]parenb [-]parodd [-]cstopb</div>
 <ul>
