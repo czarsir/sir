@@ -26,3 +26,12 @@ layout: addins
 <p>config</p>
 <div class="cmd">iptables -A FORWARD -j ACCEPT</div>
 <div class="cmd">iptables -t nat -s 192.168.1.0/24 -A POSTROUTING -j MASQUERADE</div>
+
+
+
+<br><br>
+
+<h2>Netcat</h2>
+
+<p>send UDP packet</p>
+<div class="cmd">echo -n -e "\x1" | nc -u [host] [port]</div>
