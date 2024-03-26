@@ -5,6 +5,40 @@ layout: addins
 ---
 <h1 id="ttl" hidden>{{ page.title }}</h1>
 
-
-<br><br><br>
+<br>
 <h3>DTS</h3>
+
+<br>
+<h3>Driver</h3>
+<p>probe</p>
+<div class="cmd">/* check Vendor ID */</div>
+<div class="cmd">pci_read_config_word(pci_dev, 0x0, &u16Data);</div>
+<div class="cmd">/* check Device ID */</div>
+<div class="cmd">pci_read_config_word(pci_dev, 0x2, &u16Data);</div>
+<div class="cmd"><br></div>
+<div class="cmd">/****** setup ******/</div>
+<div class="cmd"><br></div>
+<div class="cmd">/* enable */</div>
+<div class="cmd">pci_enable_device(pci_dev);</div>
+<div class="cmd">/* mem region */</div>
+<div class="cmd">pci_request_regions(pci_dev, MY_NAME);</div>
+<div class="cmd">/* ioremap */</div>
+<div class="cmd">pci_ioremap_bar(pdev, 0);  // remap BAR 0</div>
+<div class="cmd">/* irq */</div>
+<p>id table</p>
+<div class="cmd">static const struct pci_device_id pci_id_table[] = {</div>
+<div class="cmd">{ PCI_DEVICE( 0xabcd, 0x1234 ) },</div>
+<div class="cmd">};</div>
+<p>pci driver</p>
+<div class="cmd">static struct pci_driver my_pci_driver = {</div>
+<div class="cmd"> .id_table = pci_id_table,</div>
+<div class="cmd"> .probe = probe,</div>
+<div class="cmd"> .remove = remove,</div>
+<div class="cmd">};</div>
+<p>module init</p>
+<div class="cmd">pci_register_driver(&my_pci_driver);</div>
+<p>module exit</p>
+<div class="cmd">pci_unregister_driver(&my_pci_driver);</div>
+<p>module</p>
+<div class="cmd">module_init(my_mod_init);</div>
+<div class="cmd">module_exit(my_mod_exit);</div>
