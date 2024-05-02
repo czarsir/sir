@@ -1,0 +1,85 @@
+---
+title: eMMC
+categories: [addins]
+layout: addins
+---
+<h1 id="ttl" hidden>{{ page.title }}</h1>
+
+<h3>Specification</h3>
+<div>embedded MultiMediaCard (eMMC)</div>
+<p>Mode</p>
+<table>
+	<tr>
+		<th></th>
+		<th>transfer mode</th>
+		<th>frequency</th>
+		<th>bits</th>
+		<th>max bandwidth</th>
+	</tr>
+	<tr>
+		<td>DS</td>
+		<td>SDR</td>
+		<td>26 MHz</td>
+		<td>-</td>
+		<td>26 MB/s</td>
+	</tr>
+	<tr>
+		<td>HS</td>
+		<td>SDR/DDR</td>
+		<td>52 MHz</td>
+		<td>-</td>
+		<td>104 MB/s</td>
+	</tr>
+	<tr>
+		<td>HS200</td>
+		<td>SDR</td>
+		<td>200 MHz</td>
+		<td>-</td>
+		<td>200 MB/s</td>
+	</tr>
+	<tr>
+		<td>HS400</td>
+		<td>DDR</td>
+		<td>200 MHz</td>
+		<td>-</td>
+		<td>400 MB/s</td>
+	</tr>
+</table>
+<div>DS: Default Speed</div>
+<div>HS: High Speed</div>
+<div>SDR: Single Data Rate</div>
+<div>DDR: Dual Data Rate</div>
+<p>Regs</p>
+<ul>
+	<li>CID : id</li>
+	<li>RCA : relative device address</li>
+	<li>DSR : </li>
+	<li>CSD : </li>
+	<li>OCR : </li>
+	<li>EXT_CSD : </li>
+</ul>
+
+
+<br><br>
+<h3>Hardware</h3>
+<ul>
+	<li>Host -> eMMC : clock</li>
+	<li>Host <- eMMC : data strobe (with 5.0 version)</li>
+	<li>Host <-> eMMC : cmd</li>
+	<li>Host <-> eMMC : data[0-7]</li>
+	<li style="list-style-type:none;">(Following can utilize GPIO)</li>
+	<li>Host -> eMMC : reset</li>
+</ul>
+
+
+<br><br>
+<h3>Workflow</h3>
+<ol>
+	<li>reset host</li>
+	<li>reset emmc</li>
+	<li>cmd 0 : reset</li>
+	<li>cmd 2 : get CID</li>
+	<li>cmd 3 : set RCA</li>
+	<li>cmd 8 : get EXT_CSD via data lines</li>
+	<li>cmd 6 : switch operation mode</li>
+</ol>
