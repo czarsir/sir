@@ -11,6 +11,9 @@ layout: addins
 <br>
 <h3>Driver</h3>
 <p>probe</p>
+<div class="cmd">init_software()</div>
+<div class="cmd">init_hardware()</div>
+<div style="padding-left:2em">
 <div class="cmd">/* check Vendor ID */</div>
 <div class="cmd">pci_read_config_word(pci_dev, 0x0, &u16Data);</div>
 <div class="cmd">/* check Device ID */</div>
@@ -25,6 +28,14 @@ layout: addins
 <div class="cmd">/* ioremap */</div>
 <div class="cmd">pci_ioremap_bar(pdev, 0);  // remap BAR 0</div>
 <div class="cmd">/* irq */</div>
+<div class="cmd"><br></div>
+<div class="cmd">/*** setup SRIOV ***/</div>
+<div class="cmd"><br></div>
+<div class="cmd">/*** setup MSIX ***/</div>
+<div class="cmd">pci_ioremap_bar(pdev, 2);  // remap BAR 2</div>
+</div>
+<div class="cmd">start_hardware()</div>
+<div class="cmd">start_software()</div>
 <p>id table</p>
 <div class="cmd">static const struct pci_device_id pci_id_table[] = {</div>
 <div class="cmd">{ PCI_DEVICE( 0xabcd, 0x1234 ) },</div>
