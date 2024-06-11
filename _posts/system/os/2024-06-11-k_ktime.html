@@ -1,0 +1,20 @@
+---
+title: Time
+categories: [addins]
+layout: addins
+---
+<h1 id="ttl" hidden>{{ page.title }}</h1>
+
+
+<h3>Time Types</h3>
+<div class="cmd">struct timespec64 {</div>
+<div class="cmd">time64_t	tv_sec;			/* seconds */</div>
+<div class="cmd">long		tv_nsec;		/* nanoseconds */</div>
+<div class="cmd">};</div>
+
+<br>
+<h3>Real Time</h3>
+<p>get</p>
+<div class="cmd">void ktime_get_real_ts64(struct timespec64*);</div>
+<p>set (nano sec must be 0 ?)</p>
+<div class="cmd">int do_settimeofday64(const struct timespec64 *ts);</div>
