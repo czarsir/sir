@@ -1,0 +1,35 @@
+---
+title: MIPI DSI-2
+categories: [addins]
+layout: addins
+---
+<h1 id="ttl" hidden>{{ page.title }}</h1>
+
+<h3>MIPI DSI-2</h3>
+
+
+<br>
+<h3>Example</h3>
+
+<h4>LT9611UXC</h4>
+<ul>
+	<li>Receiver: MIPI CSI/DSI</li>
+	<li>Transmitter: HDMI 2.0</li>
+	<li>I2C address: 0x5E (when I2C_ADDR is high), 0x56 (when I2C_ADDR is low)</li>
+	<pre class="cmd">
+i2c_write(0xff, 0x80) //switch to bank address 0x80
+i2c_write(0xee, 0x01) //write 0x01 to 0x80ee (Stop firmware in OCM)
+i2c_write(0xff, 0x81) //switch to bank address 0x81
+chip_id_0 = i2c_read(0x00) //read chip ID
+chip_id_1 = i2c_read(0x01)
+chip_id_2 = i2c_read(0x02)
+	</pre>
+	<li>Debug: UART Tx (GPIO4), Baudrate 62500</li>
+</ul>
+
+
+<br>
+<h3>References:</h3>
+<ul>
+	<li>- (2024). MIPI DSI-2. <a href="https://www.mipi.org/specifications/dsi-2">https://www.mipi.org/specifications/dsi-2</a></li>
+</ul>
