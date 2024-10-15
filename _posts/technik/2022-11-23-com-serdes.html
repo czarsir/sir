@@ -15,7 +15,6 @@ layout: addins
 </ul>
 
 
-
 <br>
 <h3>Serializer</h3>
 
@@ -38,7 +37,6 @@ layout: addins
 </ul>
 
 
-
 <br>
 <h3>Deserializer</h3>
 
@@ -56,10 +54,33 @@ layout: addins
 </ul>
 
 
-
 <br>
 <h3>Sensor</h3>
 
 <ul>
 	<li>settings</li>
+</ul>
+
+
+<br>
+<h3>Example</h3>
+
+<h4>MAX96792/96793</h4>
+<ul>
+	<li>GMSL 3 - 12 Gbps</li>
+		<div>Des: 0x0001, 0x03, // Link A 12 Gbps</div>
+		<div>Des: 0x0004, 0xc3, // Link B 12 Gbps and both GMSL 3</div>
+		<div>Des: 0x0028, 0x62, // Link A FEC</div>
+		<div>Des: 0x5028, 0x62, // Link B FEC</div>
+		<div>Ser: 0x0001, 0x0c, // 12 Gbps</div>
+		<div>Ser: 0x0006, 0x00, // GMSL 3</div>
+		<div>Ser: 0x0028, 0x62, // FEC</div>
+	<li>GMSL 2 - 6 Gbps</li>
+		<div>Des: 0x0001, 0x02, // Link A 6 Gbps</div>
+		<div>Des: 0x0004, 0x02, // Link B 6 Gbps and both GMSL 2</div>
+		<div>Des: 0x0028, 0x60, // Link A No FEC</div>
+		<div>Des: 0x5028, 0x60, // Link B No FEC</div>
+		<div>Ser: 0x0001, 0x08, // 6 Gbps</div>
+		<div>Ser: 0x0006, 0x91, // GMSL 2</div>
+		<div>Ser: 0x0028, 0x60, // No FEC</div>
 </ul>
