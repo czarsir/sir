@@ -53,3 +53,20 @@ layout: addins
 <p>module</p>
 <div class="cmd">module_init(my_mod_init);</div>
 <div class="cmd">module_exit(my_mod_exit);</div>
+
+
+<br>
+<h3>Controller Driver (RC)</h3>
+<p>probe</p>
+<p>scan</p>
+<div class="cmd">pci_root_create()</div>
+<div class="cmd">_|-> pci_scan_child_bus()</div>
+<div class="cmd">_____|-> pci_scan_child_bus_extend()</div>
+<div class="cmd">__________|-> pci_scan_slot()</div>
+<div class="cmd">_______________|-> pci_scan_single_device()</div>
+	<div style="padding-left:9em">
+	<div class="cmd">|-> pci_scan_device()</div>
+	<div class="cmd">____|-> pci_bus_read_dev_vendor_id()</div>
+	<div class="cmd">____|-> pci_alloc_dev()</div>
+	</div>
+<div class="cmd">_______________|-> scan multifunction of this device</div>
