@@ -1,0 +1,34 @@
+---
+title: USB
+categories: [addins]
+layout: addins
+---
+<h1 id="ttl" hidden>{{ page.title }}</h1>
+
+<br>
+<h3>DTS</h3>
+
+
+<br>
+<h3>Driver</h3>
+<p>probe</p>
+
+
+<br>
+<h3>Controller Driver (Host)</h3>
+<p>probe</p>
+<div class="cmd">register_root_hub()</div>
+<div class="cmd">... ...</div>
+<p>hub_probe</p>
+<div class="cmd">INIT_WORK(&hub->events, hub_event);</div>
+<div class="cmd">hub_configure()</div>
+<div style="padding-left:2em">
+	<div class="cmd">usb_fill_int_urb(hub->urb, hdev, pipe, *hub->buffer, maxp,
+					hub_irq, hub, endpoint->bInterval);</div>
+	<div class="cmd">/* i = 0; i < maxchild; i++ */</div>
+	<div class="cmd">usb_hub_create_port_device(hub, i + 1);</div>
+</div>
+<p>Hot-Plug</p>
+<div class="cmd">hub_event()</div>
+<div class="cmd">_|-> port_event()</div>
+<div class="cmd">_____|-> hub_port_connect_change()</div>
