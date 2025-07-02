@@ -1,0 +1,24 @@
+---
+title: Benchmark - Network
+categories: [addins]
+layout: addins
+---
+<h1 id="ttl" hidden>{{ page.title }}</h1>
+
+<h3>iPerf3</h3>
+
+<div>via TCP</div>
+<ul>
+	<li>Server</li>
+	<div class="cmd">iperf3 -s</div>
+	<li>Client</li>
+	<div class="cmd">iperf3 -c [host IP]</div>
+</ul>
+
+<div>via UDP</div>
+<ul>
+	<li>Server</li>
+	<div class="cmd">iperf3 -s</div>
+	<li>Client (usually secify bitrate)</li>
+	<div class="cmd">iperf3 -c [host IP] -u -b 1000m</div>
+</ul>
