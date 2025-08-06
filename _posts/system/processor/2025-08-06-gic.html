@@ -8,8 +8,20 @@ layout: addins
 <h3>GIC-400</h3>
 
 <h4>Distributor</h4>
+<ol>
+	<li>Detect interrupts</li>
+	<li>Forward them to the CPU interfaces</li>
+</ol>
 
 <h4>CPU interface</h4>
+<ol>
+	<li>Perform priority masking and preemption handling of physical interrupts</li>
+	<li>Signal them to the corresponding processor</li>
+	<li>---> ( The processor reads the interrupt ID. )</li>
+	<li>Receive acknowledge from the processor</li>
+	<li>---> ( The processor handles the interrupt. )</li>
+	<li>Receive End of Interrupt (EOI) from the processor</li>
+</ol>
 
 
 
