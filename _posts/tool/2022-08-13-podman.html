@@ -23,6 +23,9 @@ li {
 <li>load</li>
 	<p>(from remote)</p>
 	<div class="cmd">podman pull docker.io/library/httpd</div>
+		<ul>options:
+		<li><div class="cmd">--tls-verify=false // NOT check TLS</div></li>
+		</ul>
 	<p>(from local)</p>
 	<div class="cmd">podman load -i demo.tar</div>
 <li>delete</li>
