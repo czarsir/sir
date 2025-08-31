@@ -1,0 +1,40 @@
+---
+title: Workload
+categories: [addins]
+layout: addins
+---
+<h1 id="ttl" hidden>{{ page.title }}</h1>
+
+<h3>Stress</h3>
+<p>CPU</p>
+<div class="cmd">stress -c 4</div>
+<p>memory</p>
+<div class="cmd">stress -m 2 --vm-bytes 128M</div>
+
+
+
+<br><br><br>
+<h3>Stress-ng</h3>
+<p>IO</p>
+<div class="cmd">stress-ng -i 2</div>
+<div class="cmd">stress-ng -d 4 --hdd-bytes 30M</div>
+<div class="cmd">stress-ng --iomix 2 --iomix-bytes 10M</div>
+<p>timer</p>
+<div class="cmd">stress-ng --timer 10 --timer-freq 1000000</div>
+<p>sock</p>
+<div class="cmd">stress-ng --sock 4</div>
+
+
+
+<br><br><br>
+<h3>FIO</h3>
+<p>file (specified)</p>
+<div class="cmd">fio -directory=/path_to_folder/ -name=mytest -direct=1 -rw=randrw -size=1M -numjobs=10 -nrfiles=20 -time_based -runtime=1m</div>
+
+
+
+<br><br><br>
+<h3>References:</h3>
+<ul>
+	<li>- (2025). Stress-ng. <a href="https://deepwiki.com/lyskai/stress-ng">https://deepwiki.com/lyskai/stress-ng</a></li>
+</ul>
