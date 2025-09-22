@@ -1,0 +1,76 @@
+---
+title: SPI NOR Flash
+categories: [addins]
+layout: addins
+---
+<h1 id="ttl" hidden>{{ page.title }}</h1>
+
+<h3>Specification</h3>
+
+<div>JEDEC</div>
+<p>Mode</p>
+<table>
+	<tr>
+		<th>Mode</th>
+		<th>Instruction</th>
+		<th>Address</th>
+		<th>Data</th>
+	</tr>
+	<tr>
+		<td>1-1-1</td>
+		<td>1S</td>
+		<td>1S</td>
+		<td>1S</td>
+	</tr>
+	<tr>
+		<td>4-4-4</td>
+		<td>4S</td>
+		<td>4S</td>
+		<td>4S</td>
+	</tr>
+	<tr>
+		<td>8-8-8</td>
+		<td>8S</td>
+		<td>8S</td>
+		<td>8S</td>
+	</tr>
+	<tr>
+		<td>8-8-8 DTR</td>
+		<td>8D</td>
+		<td>8D</td>
+		<td>8D</td>
+	</tr>
+</table>
+<div>(refer to Communication - SPI for more)</div>
+<div>S: SDR (Single Data Rate)</div>
+<div>D: DDR (Dual Data Rate)</div>
+<div>DTR: Double Transfer Rate</div>
+
+
+<br><br>
+<h3>Hardware</h3>
+<ul>
+	<li>Host ---> spiNor : clock</li>
+	<li>Host ---> spiNor : chip select (CS)</li>
+	<li>Host <-> spiNor : data[0-7]</li>
+	<li style="list-style-type:none;">(Following can utilize GPIO)</li>
+	<li>Host ---> spiNor : reset</li>
+</ul>
+
+
+<br><br>
+<h3>Workflow</h3>
+<ol>
+	<li>reset host</li>
+	<li>reset spiNor</li>
+	<li>cmd enable reset: 0x66</li>
+	<li>cmd reset: 0x99</li>
+	<li>cmd read ID: 0x9F</li>
+	<li>cmd read status: 0x5</li>
+		<div>(optional: change mode)</div>
+	<li>cmd read bytes: 0x3</li>
+	<li>cmd enable write: 0x6</li>
+	<li>cmd erase block</li>
+	<li>cmd enable write: 0x6</li>
+	<li>cmd page program</li>
+</ol>
