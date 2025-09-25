@@ -74,3 +74,26 @@ layout: addins
 	<li>cmd enable write: 0x6</li>
 	<li>cmd page program</li>
 </ol>
+
+
+<br><br>
+<h3>Subsystem (spi-nor)</h3>
+<p>probe</p>
+<p>scan</p>
+<div class="cmd">spi_nor_scan()</div>
+<div class="cmd">_|-> spi_nor_get_flash_info()</div>
+<div class="cmd">_____|-> spi_nor_read_id()</div>
+<div class="cmd">_|-> spi_nor_init_params()</div>
+<div class="cmd">_____|-> spi_nor_info_init_params()</div>
+<div class="cmd">_____|-> spi_nor_manufacturer_init_params()</div>
+<div class="cmd">__________|-> [specific device]_fixup()</div>
+<div class="cmd">_|-> spi_nor_setup() <-> spi_nor_default_setup()</div>
+<div class="cmd">_____|-> spi_nor_spimem_adjust_hwcaps()</div>
+<div class="cmd">__________|-> controller->hwcaps & params->hwcaps</div>
+<div class="cmd">_____|-> spi_nor_select_read()</div>
+<div class="cmd">_____|-> spi_nor_select_pp()</div>
+<div class="cmd">_____|-> spi_nor_select_erase()</div>
+<div class="cmd">_|-> spi_nor_set_addr_width()</div>
+<div class="cmd">_____|-> 3byte to 4byte command convert</div>
+<div class="cmd">_|-> spi_nor_init()</div>
+<div class="cmd">_____|-> spi_nor_octal_dtr_enable()</div>
