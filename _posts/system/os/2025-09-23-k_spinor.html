@@ -60,6 +60,7 @@ layout: addins
 
 <br><br>
 <h3>Workflow</h3>
+<p>Initialize</p>
 <ol>
 	<li>reset host</li>
 	<li>reset spiNor</li>
@@ -68,16 +69,27 @@ layout: addins
 	<li>cmd read ID: 0x9F</li>
 	<li>cmd read status: 0x5</li>
 		<div>(optional: change mode)</div>
+</ol>
+<p>Read</p>
+<ol>
 	<li>cmd read bytes: 0x3</li>
+</ol>
+<p>Erase</p>
+<ol>
 	<li>cmd enable write: 0x6</li>
 	<li>cmd erase block</li>
+</ol>
+<p>Write</p>
+<ol>
 	<li>cmd enable write: 0x6</li>
 	<li>cmd page program</li>
 </ol>
 
 
 <br><br>
-<h3>Subsystem (spi-nor)</h3>
+<h3>Implementation</h3>
+
+<h4>Subsystem (spi-nor)</h4>
 <p>probe</p>
 <p>scan</p>
 <div class="cmd">spi_nor_scan()</div>
@@ -89,7 +101,7 @@ layout: addins
 <div class="cmd">__________|-> [specific device]_fixup()</div>
 <div class="cmd">_|-> spi_nor_setup() <-> spi_nor_default_setup()</div>
 <div class="cmd">_____|-> spi_nor_spimem_adjust_hwcaps()</div>
-<div class="cmd">__________|-> controller->hwcaps & params->hwcaps</div>
+<div class="cmd">__________|-> (controller->hwcaps &amp; params->hwcaps)</div>
 <div class="cmd">_____|-> spi_nor_select_read()</div>
 <div class="cmd">_____|-> spi_nor_select_pp()</div>
 <div class="cmd">_____|-> spi_nor_select_erase()</div>
@@ -97,3 +109,11 @@ layout: addins
 <div class="cmd">_____|-> 3byte to 4byte command convert</div>
 <div class="cmd">_|-> spi_nor_init()</div>
 <div class="cmd">_____|-> spi_nor_octal_dtr_enable()</div>
+
+
+<br><br>
+<h3>Performance</h3>
+<p>user space</p>
+<div class="cmd">dd</div>
+<p>kernel space (CONFIG_MTD_TESTS)</p>
+<div class="cmd">insmod mtd_speedtest.ko dev=0 count=100</div>
