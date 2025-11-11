@@ -6,8 +6,38 @@ layout: addins
 <h1 id="ttl" hidden>{{ page.title }}</h1>
 
 <h3>Init</h3>
+<p>/sbin/init -> /lib/systemd/systemd</p>
+<p>/etc/systemd/system/*.service</p>
 
 
-<h4>Unit</h4>
+
+<br><br>
+<h3>Unit</h3>
+<h4>service</h4>
+
+<h4>target</h4>
+
 <p>/lib/systemd/system</p>
 
+
+
+<br><br>
+<h3>Journald</h3>
+<h4>config</h4>
+<p>/etc/systemd/journald.conf</p>
+<ul>
+	<li>Storage</li>
+	<div>volatile</div>
+	<div>persistent</div>
+	<div>auto</div>
+	<div>none</div>
+</ul>
+
+
+
+<br><br>
+<h3>Tools</h3>
+<p>systemctl</p>
+<div class="cmd">systemctl start *.service</div>
+<div class="cmd">systemctl stop *.service</div>
+<div class="cmd">systemctl status *.service</div>
