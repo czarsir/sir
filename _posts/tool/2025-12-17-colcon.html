@@ -5,6 +5,31 @@ layout: addins
 ---
 <h1 id="ttl" hidden>{{ page.title }}</h1>
 
+<style type="text/css">
+li {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+</style>
+
+<h3>Dependency Management</h3>
+<p>"rosdep" reads package.xml for "rosdep keys".</p>
+<p>base operation</p>
+<div class="cmd">rosdep init</div>
+<div class="cmd">rosdep update</div>
+<div class="cmd">rosdep install --from-paths my_src_path --ignore-src -y</div>
+<p>check "rosdep keys"</p>
+<div class="cmd">rosdep resolve key_to_check</div>
+<p>handle unknown keys</p>
+<ul>
+<li>(recommended) skip and manually install them later.</li>
+<div class="cmd">rosdep install --from-paths src --ignore-src -y --skip-keys "unknown_key1 unknown_key2"</div>
+<li>(optional) add them to rosdistro index (local cache path: ~/.ros)</li>
+<div class="cmd">(add item in /etc/ros/rosdep/sources.list.d/20-default.list)</div>
+<div class="cmd">rosdep update</div>
+</ul>
+
+
 <br><br>
 <h3>Tips</h3>
 <p>Skip a specific package (in the directory of the package)</p>
