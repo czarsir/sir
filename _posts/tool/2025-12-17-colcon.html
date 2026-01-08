@@ -24,16 +24,43 @@ li {
 <ul>
 <li>(recommended) skip and manually install them later.</li>
 <div class="cmd">rosdep install --from-paths src --ignore-src -y --skip-keys "unknown_key1 unknown_key2"</div>
-<li>(optional) add them to rosdistro index (local cache path: ~/.ros)</li>
+<li>(optional) add them to rosdistro index (local cache path: ~/.ros/rosdep)</li>
 <div class="cmd">(add item in /etc/ros/rosdep/sources.list.d/20-default.list)</div>
 <div class="cmd">rosdep update</div>
 </ul>
 
 
 <br><br>
-<h3>Tips</h3>
-<p>Skip a specific package (in the directory of the package)</p>
-<div class="cmd">touch COLCON_IGNORE</div>
+<h3>Build the Workspace</h3>
+<p>directory structure</p>
+<pre class="cmd">
+.
+├── build
+├── install
+├── log
+└── src
+</pre>
+<p>build</p>
+<div class="cmd">colcon build --symlink-install</div>
+<p>tips</p>
+<ul>
+	<li>build a specific package</li>
+	<div class="cmd">colcon build --packages-select [package]</div>
+	<li>build a specific package with dependency</li>
+	<div class="cmd">colcon build --packages-up-to [package]</div>
+	<li>build a specific package with CMake args</li>
+	<div class="cmd">colcon build --packages-select [package] --cmake-args -DCMAKE_BUILD_TYPE=Debug</div>
+	<li>build a specific package with Makefile flags (single thread in case of kernel OOM)</li>
+	<div class="cmd">MAKEFLAGS=-j1 colcon build --packages-select [package]</div>
+	<li>skip a specific package (in the directory of the package)</li>
+	<div class="cmd">touch COLCON_IGNORE</div>
+</ul>
+
+
+<br><br>
+<h3>Usage</h3>
+<p>Source the environment</p>
+<div class="cmd">source install/setup.bash</div>
 
 
 
