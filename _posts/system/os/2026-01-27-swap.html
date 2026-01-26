@@ -1,0 +1,30 @@
+---
+title: Swap
+categories: [addins]
+layout: addins
+---
+<h1 id="ttl" hidden>{{ page.title }}</h1>
+
+<style type="text/css">
+li {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+</style>
+
+<h3>Swap File</h3>
+
+<br>
+<p>Command</p>
+<div class="cmd">fallocate -l 5G /swapfile</div>
+<div class="cmd">chmod 600 /swapfile</div>
+<div class="cmd">mkswap /swapfile</div>
+<ul>
+	<li>enable</li>
+	<div class="cmd">swapon /swapfile</div>
+	<li>disable</li>
+	<div class="cmd">swapoff /swapfile</div>
+</ul>
+
+<p>Check</p>
+<div class="cmd">swapon --show</div>
