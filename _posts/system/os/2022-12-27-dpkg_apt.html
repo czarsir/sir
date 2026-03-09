@@ -5,14 +5,32 @@ layout: addins
 ---
 <h1 id="ttl" hidden>{{ page.title }}</h1>
 
+<style type="text/css">
+	li {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+</style>
+
 <h3>Advanced Packaging Tool (APT)</h3>
 
-<br>
+<ul>
+<li>Basic Operation</li>
+	<p>install</p>
+	<div class="cmd">apt install [package]</div>
+	<p>uninstall</p>
+	<div class="cmd">apt remove [package]</div>
+</ul>
+
+
+<br><br>
+<h3>(obsolete) Setup from scratch</h3>
+
 <p>Prepare</p>
 <div class="cmd">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/lib/aarch64-linux-gnu/:/usr/lib/aarch64-linux-gnu/</div>
 
 <p>Install - (dependencies)</p>
-<div class="cmd">
+<pre class="cmd">
 dpkg -i libaudit-common_2.8.4-3_all.deb
 dpkg -i --force-all libc6_2.36-6_arm64.deb
 dpkg -i gcc-12-base_12.2.0-9_arm64.deb
@@ -57,7 +75,7 @@ dpkg -i libp11-kit0_0.23.15-2+deb10u1_arm64.deb
 dpkg -i libtasn1-6_4.13-3_arm64.deb
 dpkg -i libgnutls30_3.6.7-4+deb10u9_arm64.deb
 dpkg -i libseccomp2_2.3.3-4_arm64.deb
-</div>
+</pre>
 
 <p>Install</p>
 <div class="cmd">dpkg -i apt_1.8.2.3_arm64.deb</div>
@@ -93,4 +111,13 @@ dpkg -i libseccomp2_2.3.3-4_arm64.deb
 	<li>update dpkg ???</li>
 	<div class="cmd">apt-mark hold dpkg</div>
 	<div class="cmd">apt install dpkg=1.21.1ubuntu2.1</div>
+</ul>
+
+
+
+<br><br><br>
+<h3>References:</h3>
+<ul>
+	<li>- (2026). Useful APT Commands. <a href="https://www.ubuntumint.com/apt-commands/">https://www.ubuntumint.com/apt-commands/</a></li>
+	<li>- (2026). Linux APT. <a href="https://www.runoob.com/linux/linux-comm-apt.html">https://www.runoob.com/linux/linux-comm-apt.html</a></li>
 </ul>
