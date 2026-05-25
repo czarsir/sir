@@ -5,6 +5,31 @@ layout: addins
 ---
 <h1 id="ttl" hidden>{{ page.title }}</h1>
 
-<h3>Commands</h3>
+<style type="text/css">
+li {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+</style>
 
+<h3>Namespace</h3>
+<ul>
+<li>get</li>
+<p>get all<p>
 <div class="cmd">kubectl get ns</div>
+<p>get details<p>
+<div class="cmd">kubectl get ns kube-system</div>
+<li>create</li>
+<div class="cmd">kubectl create ns dev</div>
+</ul>
+
+
+<br><br>
+<h3>Node</h3>
+<ul>
+<li>get</li>
+<p>get all<p>
+<div class="cmd">kubectl get nodes</div>
+<li>show</li>
+<div class="cmd">kubectl describe nodes</div>
+</ul>
