@@ -1,0 +1,77 @@
+---
+title: CRI-O
+categories: [addins]
+layout: addins
+---
+<h1 id="ttl" hidden>{{ page.title }}</h1>
+
+<style type="text/css">
+pre {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	word-wrap: break-word;
+}
+</style>
+
+
+<h3>Install</h3>
+<p>keyring and source</p>
+<pre class="cmd">
+export CRIO_VERSION=v1.32
+curl -fsSL https://download.opensuse.org/repositories/isv:/cri-o:/stable:/$CRIO_VERSION/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/cri-o-apt-keyring.gpg
+echo "deb [signed-by=/etc/apt/keyrings/cri-o-apt-keyring.gpg] https://download.opensuse.org/repositories/isv:/cri-o:/stable:/$CRIO_VERSION/deb/ /" | sudo tee /etc/apt/sources.list.d/cri-o.list
+</pre>
+<p>install</p>
+<pre class="cmd">
+sudo apt update
+sudo apt install -y cri-o
+sudo systemctl daemon-reload
+sudo systemctl enable crio --now
+</pre>
+<p>check</p>
+<div class="cmd">systemctl status crio</div>
+<div class="cmd">crio --version</div>
+
+
+<br><br>
+<h3>Config</h3>
+<p>/etc/crio/crio.conf</p>
+<pre class="cmd">
+[crio.runtime]
+sandbox_image = "registry.cn-hangzhou.aliyuncs.com/google_containers/pause:3.10"
+</pre>
+<p>/etc/containers/registries.conf.d/crio.conf</p>
+<pre class="cmd">
+[[registry]]
+prefix = "registry.k8s.io"
+location = "registry.k8s.io"
+
+[[registry.mirror]]
+location = "registry.cn-hangzhou.aliyuncs.com/google_containers"
+insecure = false
+
+[[registry.mirror]]
+location = "docker.m.daocloud.io"
+insecure = false
+
+[[registry]]
+prefix = "docker.io"
+location = "docker.io"
+
+[[registry.mirror]]
+location = "docker.1ms.run"
+insecure = false
+
+[[registry.mirror]]
+location = "docker.xuanyuan.me"
+insecure = false
+
+[[registry.mirror]]
+location = "docker.m.daocloud.io"
+insecure = false
+</pre>
+
+
+<br><br>
+<h3>Tools</h3>
+<p>podman</p>
