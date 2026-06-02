@@ -81,6 +81,16 @@ kubectl get csr
 <div class="cmd">kubelet --version</div>
 
 
+<br><br>
+<h3>Reset</h3>
+<pre class="cmd">
+kubeadm reset --force
+rm -rf /etc/kubernetes /var/lib/kubelet /var/lib/etcd
+rm -rf /etc/cni/net.d /var/lib/cni /var/lib/calico/
+//(optional) rm -rf $HOME/.kube
+</pre>
+
+
 
 <br><br><br>
 <h3>Worker</h3>
