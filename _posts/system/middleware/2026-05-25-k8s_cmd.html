@@ -12,12 +12,17 @@ li {
 }
 </style>
 
+
+<h3>API</h3>
+<div class="cmd">kubectl api-resources</div>
+
+<br><br>
 <h3>Namespace</h3>
 <ul>
 <li>get</li>
-<p>get all<p>
+<div>get all<div>
 <div class="cmd">kubectl get ns</div>
-<p>get details<p>
+<div>get details<div>
 <div class="cmd">kubectl get ns kube-system</div>
 <li>create</li>
 <div class="cmd">kubectl create ns dev</div>
@@ -28,8 +33,112 @@ li {
 <h3>Node</h3>
 <ul>
 <li>get</li>
-<p>get all<p>
+<div>get all<div>
 <div class="cmd">kubectl get nodes</div>
 <li>show</li>
 <div class="cmd">kubectl describe nodes</div>
+</ul>
+
+
+<br><br>
+<h3>Daemonset</h3>
+<ul>
+<li>get</li>
+	<div>get all<div>
+	<div class="cmd">kubectl get daemonset -A</div>
+	<div>get specific namespace<div>
+	<div class="cmd">kubectl get daemonset -n kube-system</div>
+<li>delete</li>
+	<div class="cmd">kubectl delete daemonset -n kube-system xxx</div>
+</ul>
+
+
+<br><br>
+<h3>Deployment</h3>
+<ul>
+<li>get</li>
+	<div>get specific namespace<div>
+	<div class="cmd">kubectl get deployment -n kube-system</div>
+</ul>
+
+
+<br><br>
+<h3>Pod</h3>
+<ul>
+<li>get</li>
+	<div>get all<div>
+	<div class="cmd">kubectl get pods -A</div>
+	<div>get specific namespace<div>
+	<div class="cmd">kubectl get pods -n kube-system [-o wide]</div>
+<li>show</li>
+	<div class="cmd">kubectl describe pod -n kube-system xxx</div>
+<li>log</li>
+	<div class="cmd">kubectl logs -n kube-system xxx</div>
+<li>delete</li>
+	<div class="cmd">kubectl delete pod -n kube-system xxx		[--force --grace-period=0]</div>
+</ul>
+
+
+<br><br>
+<h3>PV</h3>
+<ul>
+<li>get pv</li>
+	<div class="cmd">kubectl get pv -o wide</div>
+	<div class="cmd">kubectl describe pv xxx</div>
+<li>get pvc</li>
+	<div>get specific namespace<div>
+	<div class="cmd">kubectl get pvc -n my-test</div>
+</ul>
+
+
+<br><br>
+<h3>clusterservingruntime</h3>
+<ul>
+<li>get</li>
+	<div>???get specific namespace<div>
+	<div class="cmd">kubectl get clusterservingruntime -n kserve-test</div>
+</ul>
+
+
+<br><br>
+<h3>inferenceservice</h3>
+<ul>
+<li>get</li>
+	<div>get specific namespace<div>
+	<div class="cmd">kubectl get inferenceservice -n kserve-test</div>
+<li>delete</li>
+	<div class="cmd">kubectl delete inferenceservice -n kserve-test xxx</div>
+</ul>
+
+
+<br><br>
+<h3>Maintenance</h3>
+<p>disable schedule</p>
+<div class="cmd">// disable</div>
+<div class="cmd">kubectl cordon mynode</div>
+<div class="cmd">kubectl taint node mynode maintenance=offline:NoSchedule</div>
+<div class="cmd">// recover</div>
+<div class="cmd">kubectl taint node mynode maintenance=offline:NoSchedule-</div>
+<div class="cmd">kubectl uncordon mynode</div>
+<p>delete node</p>
+<pre class="cmd">
+kubectl drain mynode --ignore-daemonsets --delete-emptydir-data [--timeout=300s]
+	kubectl get pods -A --field-selector spec.nodeName=mynode
+kubectl delete node mynode
+</pre>
+
+
+<br><br>
+<h3>Utility</h3>
+<p>check usage</p>
+<div class="cmd">kubectl top nodes</div>
+<div class="cmd">kubectl top pods --all-namespaces</div>
+<p>debug pod inside</p>
+<div class="cmd">kubectl exec -it my-pod -- /bin/bash</div>
+<p>data transfer</p>
+<ul>
+<li>port-forward</li>
+<div class="cmd">kubectl port-forward -n dev pod/nginx --address 0.0.0.0 8080:80</div>
+<li>Node port</li>
+<div class="cmd">kubectl expose pod nginx -n dev --type=NodePort --port=88 --target-port=88 --name=nginx-service</div>
 </ul>
