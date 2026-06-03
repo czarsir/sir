@@ -1,0 +1,35 @@
+---
+title: Setup
+categories: [addins]
+layout: addins
+---
+<h1 id="ttl" hidden>{{ page.title }}</h1>
+
+<style type="text/css">
+	pre {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		word-wrap: break-word;
+	}
+</style>
+
+
+<h3>Install</h3>
+<pre class="cmd">
+curl -k -L "https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.76.2/bundle.yaml"
+kubectl apply --server-side -f xxx
+</pre>
+
+
+
+<br><br>
+<h3>Usage</h3>
+<p>show</p>
+<div class="cmd">kubectl get servicemonitors --all-namespaces</div>
+<div class="cmd">kubectl describe prometheus -n monitoring xxx</div>
+<p>log</p>
+<div class="cmd">kubectl logs deployment/prometheus-operator</div>
+<p>Web UI server</p>
+<div class="cmd">kubectl port-forward -n monitoring svc/prometheus-operated --address 0.0.0.0  9090:9090</div>
+<p>Web UI browser</p>
+<div class="cmd">sum by (instance) (my_item_state)</div>

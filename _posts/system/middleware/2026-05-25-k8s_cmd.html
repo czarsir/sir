@@ -73,7 +73,7 @@ li {
 <li>show</li>
 	<div class="cmd">kubectl describe pod -n kube-system xxx</div>
 <li>log</li>
-	<div class="cmd">kubectl logs -n kube-system xxx</div>
+	<div class="cmd">kubectl logs -n kube-system xxx [-c kserve-container]</div>
 <li>delete</li>
 	<div class="cmd">kubectl delete pod -n kube-system xxx		[--force --grace-period=0]</div>
 </ul>
@@ -106,13 +106,15 @@ li {
 <li>get</li>
 	<div>get specific namespace<div>
 	<div class="cmd">kubectl get inferenceservice -n kserve-test</div>
+<li>show</li>
+	<div class="cmd">kubectl describe inferenceservice -n kserve-test xxx</div>
 <li>delete</li>
 	<div class="cmd">kubectl delete inferenceservice -n kserve-test xxx</div>
 </ul>
 
 
 <br><br>
-<h3>Maintenance</h3>
+<h3>Management / Maintenance</h3>
 <p>disable schedule</p>
 <div class="cmd">// disable</div>
 <div class="cmd">kubectl cordon mynode</div>
@@ -133,8 +135,10 @@ kubectl delete node mynode
 <p>check usage</p>
 <div class="cmd">kubectl top nodes</div>
 <div class="cmd">kubectl top pods --all-namespaces</div>
+<p>debug</p>
+<div class="cmd">kubectl get events -n kserve-test --sort-by=".lastTimestamp"</div>
 <p>debug pod inside</p>
-<div class="cmd">kubectl exec -it my-pod -- /bin/bash</div>
+<div class="cmd">kubectl exec -it my-pod -n mynamespace -- /bin/bash</div>
 <p>data transfer</p>
 <ul>
 <li>port-forward</li>
