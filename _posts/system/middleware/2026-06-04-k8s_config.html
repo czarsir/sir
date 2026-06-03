@@ -1,0 +1,75 @@
+---
+title: Configuration
+categories: [addins]
+layout: addins
+---
+<h1 id="ttl" hidden>{{ page.title }}</h1>
+
+<style type="text/css">
+li {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+pre {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	word-wrap: break-word;
+}
+</style>
+
+
+<h3>kube-proxy</h3>
+<ul>
+<li>ConfigMap</li>
+<pre class="cmd">
+kubectl edit configmap -n kube-system kube-proxy
+data:
+  config.conf:
+    iptables:
+      # Force legacy iptables mode
+      localhostNodePorts: true
+</pre>
+<li>DaemonSet</li>
+<pre class="cmd">
+kubectl edit daemonset -n kube-system kube-proxy
+	//command
+	//	--proxy-mode=nftables
+</pre>
+</ul>
+
+
+<br><br>
+<h3>calico-node</h3>
+<ul>
+<li>DaemonSet</li>
+<pre class="cmd">
+kubectl edit ds -n kube-system calico-node
+	- name: IP_AUTODETECTION_METHOD
+	  value: can-reach=10.0.0.21
+kubectl set env daemonset/calico-node -n kube-system IP_AUTODETECTION_METHOD=can-reach=10.0.0.21
+kubectl set env daemonset/calico-node -n kube-system FELIX_IPTABLESBACKEND=Legacy
+</pre>
+</ul>
+
+
+<br><br>
+<h3>coredns</h3>
+<ul>
+<li>ConfigMap</li>
+<pre class="cmd">
+kubectl edit configmap -n kube-system coredns
+	from:	forward . /etc/resolv.conf
+	to:	forward . [dns server IP]
+kubectl rollout restart deployment coredns -n kube-system
+</pre>
+</ul>
+
+
+<br><br>
+<h3>metrics-server</h3>
+<ul>
+<li>Deployment</li>
+<pre class="cmd">
+kubectl edit deployment metrics-server -n kube-system
+</pre>
+</ul>
