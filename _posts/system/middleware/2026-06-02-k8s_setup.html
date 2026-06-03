@@ -71,6 +71,11 @@ kubectl apply -f calico.yaml
 	cgroupDriver: system
 	serverTLSBootstrap: true
 </pre>
+<p>(optional) for crictl to change CRI</p>
+<pre class="cmd">
+/etc/crictl.yaml
+	runtime-endpoint: "unix:///var/run/containerd/containerd.sock"
+</pre>
 <p>certificate</p>
 <pre class="cmd">
 kubectl get csr
