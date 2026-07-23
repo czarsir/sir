@@ -132,6 +132,10 @@ kubectl delete node mynode
 
 <br><br>
 <h3>Utility</h3>
+<p>CRI tool: crictl</p>
+<div class="cmd">
+crictl --runtime-endpoint unix:///var/run/containerd/containerd.sock pull docker.io/calico/cni:v3.27.0
+</div>
 <p>check usage</p>
 <div class="cmd">kubectl top nodes</div>
 <div class="cmd">kubectl top pods --all-namespaces</div>

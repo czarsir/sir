@@ -61,8 +61,6 @@ systemctl restart containerd
 <pre class="cmd">
 ctr -n k8s.io images pull registry.aliyuncs.com/google_containers/pause:3.8
 ctr -n k8s.io image import my_image.tar
+ctr --address /var/run/containerd/containerd.sock -n k8s.io image ls
 </pre>
-<p>crictl</p>
-<pre class="cmd">
-crictl --runtime-endpoint unix:///var/run/containerd/containerd.sock pull docker.io/calico/cni:v3.27.0
-</pre>
+
