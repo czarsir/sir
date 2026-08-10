@@ -70,10 +70,13 @@ li {
 	<div class="cmd">kubectl get pods -A</div>
 	<div>get specific namespace<div>
 	<div class="cmd">kubectl get pods -n kube-system [-o wide]</div>
+	<div>get and save<div>
+		<div class="cmd">kubectl get pod xxx -o yaml > my_pod.yaml</div>
 <li>show</li>
 	<div class="cmd">kubectl describe pod -n kube-system xxx</div>
 <li>log</li>
 	<div class="cmd">kubectl logs -n kube-system xxx [-c kserve-container]</div>
+	<div class="cmd">kubectl logs xxx --tail=20</div>
 <li>delete</li>
 	<div class="cmd">kubectl delete pod -n kube-system xxx		[--force --grace-period=0]</div>
 </ul>
@@ -115,6 +118,9 @@ li {
 
 <br><br>
 <h3>Management / Maintenance</h3>
+<p>add new</p>
+<div class="cmd">kubectl apply -f file.yaml</div>
+<div class="cmd">kubectl delete -f file.yaml</div>
 <p>disable schedule</p>
 <div class="cmd">// disable</div>
 <div class="cmd">kubectl cordon mynode</div>
@@ -136,6 +142,7 @@ kubectl delete node mynode
 <div class="cmd">
 crictl --runtime-endpoint unix:///var/run/containerd/containerd.sock pull docker.io/calico/cni:v3.27.0
 </div>
+<div class="cmd">crictl images</div>
 <p>check usage</p>
 <div class="cmd">kubectl top nodes</div>
 <div class="cmd">kubectl top pods --all-namespaces</div>
